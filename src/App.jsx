@@ -7,6 +7,7 @@ import GlobalStyles from "./common/globalStyles/GlobalStyles";
 import Home from "./pages/Home";
 import ProtectedRoute from "./components/ProtectedRoute";
 import AppLayout from "./components/AppLayout";
+import ManutencaoCorretiva from "./pages/ManutencaoCorretiva";
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
             <Route path="/" element={<Login />} />
             <Route path="/dashboard/*" element={<ProtectedRoute element={<AppLayout />} />}>
               <Route index element={<Home />} />
-              <Route path="manutencao-corretiva" element={<Home />} />
+              <Route path="manutencao-corretiva" element={<ManutencaoCorretiva />} />
               <Route path="manutencao-programada" element={<Home />} />
               <Route path="gerenciar-pessoa" element={<Home />} />
               <Route path="gerenciar-usuario" element={<Home />} />

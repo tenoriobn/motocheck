@@ -4,7 +4,7 @@ const GlobalStyles = createGlobalStyle`
   body {
     padding: 0;
     margin: 0;
-    background: ${({ theme }) => theme.colors.mediumGray};
+    background: ${({ theme }) => theme.colors.jetBlack};
     box-sizing: border-box;
     outline: none;
     color: ${({ theme }) => theme.colors.white};
@@ -24,6 +24,7 @@ const GlobalStyles = createGlobalStyle`
     button, input, select {
       font-family: ${({ theme }) => theme.montserrat};
       outline: none;
+      font-size: 1rem;
     }
     
     select {
