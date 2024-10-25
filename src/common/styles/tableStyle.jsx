@@ -2,9 +2,8 @@ import styled from "styled-components";
 
 export const Table = styled.table`
   border-collapse: separate;
-  border-spacing: 0 1em;
+  border-spacing: 0 1rem;
   font-size: .9rem;
-  font-weight: 500;
   margin: 4.5rem 0 1.5rem 0;
   width: 100%;
 
@@ -14,6 +13,7 @@ export const Table = styled.table`
   }
 
   th {
+    font-weight: 700;
     text-align: center;
     padding-bottom: 1.25rem;
   }
@@ -38,12 +38,15 @@ export const Table = styled.table`
 
   .status {
     display: inline-block;
+    box-sizing: border-box;
     border-radius: .3125rem;
     color: ${({ theme }) => theme.colors.white};
-    font-weight: bold;
+    font-weight: 600;
     text-align: center;
     text-transform: uppercase;
     padding: .5rem .75rem;
+    max-width: 136px;
+    width: 100%;
   }
 
   .status__active {
@@ -60,7 +63,7 @@ export const Table = styled.table`
 
   .button__container {
     display: flex;
-    gap: .3125rem;
+    gap: 1rem;
     justify-content: center;
     align-items: center;
   }
@@ -68,13 +71,20 @@ export const Table = styled.table`
   .button {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: .375rem;
     border: none;
     border-radius: .3125rem;
+    box-sizing: border-box;
     cursor: pointer;
     color: ${({ theme }) => theme.colors.white};
+    font-weight: 600;
+    font-size: .875rem;
+    text-transform: uppercase;
     transition: all .2s ease-in-out;
     padding: 0 .9375rem;
+    width: 100%;
+    max-width: 110px;
     height: 38px;
 
     &:hover {
@@ -83,11 +93,11 @@ export const Table = styled.table`
   }
 
   .button__view {
-    background-color: #4e73df;
+    background-color: ${({ theme }) => theme.colors.mediumBlue};
   }
 
   .button__edit {
-    background-color: #f4b400;
+    background-color: ${({ theme }) => theme.colors.goldenYellow};
   }
 
   @media (max-width: 767px) {

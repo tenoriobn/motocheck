@@ -14,7 +14,9 @@ const Theme = {
     coolGray: '#858796',
     slateGray: '#7a7b86',
     jetBlack: '#1a191f',
-    red: '#ce1b0a'
+    red: '#ce1b0a',
+    goldenYellow: '#f4b400',
+    mediumBlue: '#4e73df',
 
   },
   font: {

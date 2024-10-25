@@ -83,8 +83,10 @@ export const ButtonSearchForm = styled.button`
   color: ${({ theme }) => theme.colors.white};
   padding: .75rem .9375rem;
   height: 44px;
+  transition: all .2s ease-in-out;
+  min-width: 112px;
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.slateGray};
+    opacity: .8;
   }
 `;

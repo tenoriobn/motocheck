@@ -1,11 +1,7 @@
-import { useState } from 'react';
 import styled from "styled-components";
-import { useNavigate } from 'react-router-dom';
-import { useSetRecoilState } from "recoil";
-import { postApi, salvarToken } from '../../common/http/http';
-import { stateUserLogin } from '../../common/states/atom';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useLogin } from '../../hooks/login/useLogin';
 
 const LoginContainer = styled.section`
   display: flex;
@@ -45,6 +41,7 @@ const FormContainer = styled.div`
     font-size: 2rem;
     font-weight: 600;
     line-height: 2.75rem;
+    text-align: center;
     margin-bottom: 1.875rem;
   }
 `;
@@ -102,28 +99,7 @@ const Form = styled.form`
 `;
 
 export default function Login() {
-  const [login, setLogin] = useState('');
-  const [senha, setSenha] = useState('');
-  const setUserLogin = useSetRecoilState(stateUserLogin);
-  const navigate = useNavigate();
-
-  const handleLogin = async (e) => {
-    e.preventDefault();
-
-    try {
-      const response = await postApi('/usuarios/authenticate', {login, senha});
-
-      if (response && response.token) {
-        salvarToken(response.token);
-        setUserLogin(response.token);
-        navigate('/dashboard');
-      } else {
-        throw new Error('Token não encontrado na resposta.');
-      }
-    } catch (error) {
-      toast.error(error.response.data.response || 'Erro ao fazer login');
-    }
-  }
+  const { login, setLogin, senha, setSenha, handleLogin } = useLogin();
 
   return (
     <LoginContainer>
@@ -133,7 +109,7 @@ export default function Login() {
 
       <RightSide>
         <FormContainer >
-          <center><h1>Motocheck</h1></center>
+          <h1>Motocheck</h1>
 
           <Form onSubmit={handleLogin}>
             <label htmlFor="login">

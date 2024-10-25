@@ -1,6 +1,6 @@
-import { LinkItem, Main } from "../../common/styles/componentStyles";
-import Header from "../../components/Header";
-import Title from "../../components/Title";
+import { LinkItem, Main } from "src/common/styles/componentStyles";
+import Header from "src/components/Header";
+import Title from "src/components/Title";
 import SearchFilterManutencaoCorretiva from "./SearchFilterManutencaoCorretiva";
 import TableManutencaoCorretiva from "./TableManutencaoCorretiva";
 

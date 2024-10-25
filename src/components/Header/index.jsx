@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import styled from "styled-components"
 import { useRecoilState } from "recoil"
-import { stateMenuActive } from "../../common/states/atom";
+import { stateMenuActive } from "src/store/atom.js";
 
 const HeaderContainer = styled.header`
   display: flex;

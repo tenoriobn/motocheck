@@ -2,9 +2,9 @@ import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { stateMenuActive, stateUserDate } from "../../../common/states/atom";
+import { stateMenuActive, stateUserDate } from "src/store/atom.js";
 import links from "./links.json";
-import { removerToken } from "../../../common/http/http";
+import { removerToken } from "src/http/http";
 
 const ContainerSidebar = styled.div`
   background: #20202a;

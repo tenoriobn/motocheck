@@ -14,3 +14,9 @@ export const stateMenuActive = atom({
   key: 'menuActive',
   default: false,
 });
+
+// Estados para manutenções corretivas
+export const stateAllCorrectiveMaintenances = atom({
+  key: 'allCorrectiveMaintenances',
+  default: []
+})

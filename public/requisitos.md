@@ -7,3 +7,8 @@
 - Corrigir transition e concentrar em um local só para globalizar e facilitar manutenção;
 - Centralizar e padronizar `hover, focus e etc` utilizando `opacity` para facilitar manutenção.
 - Correção das cores do sistema;
+
+
+  // COLOQUEI A ROTA DA MANUTENÇÃO PROGRAMADA NO COMPONENTE DE
+  MANUTENÇÃO PREVENTIVA POR ENQUANTO, ALÉM DISSO FALTA SINCRONIZAR COM A TABELA
+  A TABELA DEVE MOSTRAR A BUSCA, MAS CASO NÃO TENHA, DEVE MOSTRAR TODOS OS MODELOS NA MANUTENÇÃO CORRETIVA.

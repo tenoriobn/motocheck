@@ -19,9 +19,9 @@ export const LinkItem = styled(Link)`
   display: inline-flex;
   align-items: center;
   gap: .3125rem;
-  transition: all .3s ease-in-out;
+  transition: all .2s ease-in-out;
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.darkblue};
+    opacity: .8;
   }
 `;

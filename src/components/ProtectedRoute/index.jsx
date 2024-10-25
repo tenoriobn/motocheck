@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useEffect } from "react";
 import { useRecoilState } from "recoil";
-import { stateUserLogin } from "../../common/states/atom";
+import { stateUserLogin } from "src/store/atom.js";
 import { useNavigate } from "react-router-dom";
 import Cookies from 'js-cookie';
 import { jwtDecode } from 'jwt-decode';
