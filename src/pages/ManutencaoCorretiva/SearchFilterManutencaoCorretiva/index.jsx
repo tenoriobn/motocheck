@@ -1,5 +1,5 @@
 import { useSearchFilterManutencaoCorretiva } from 'src/hooks/manutencaoCorretiva/useSearchFilterManutencaoCorretiva';
-import { ButtonSearchForm, FilterInputContainer, FilterSelectContainer, Form, Label } from 'src/common/styles/formStyles'
+import { ButtonSearchForm, FilterInputContainer, FilterSelectContainer, Form, Label } from 'src/common/styles/formFilterStyles'
 
 export default function SearchFilterManutencaoCorretiva() {
   const { filtro, setFiltro, handleSearch } = useSearchFilterManutencaoCorretiva();

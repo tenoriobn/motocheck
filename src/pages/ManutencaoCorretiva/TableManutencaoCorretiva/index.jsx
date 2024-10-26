@@ -1,11 +1,13 @@
-import { useRecoilValue } from "recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import { useEffect } from "react";
 import { Table } from "src/common/styles/tableStyle";
 import { stateAllCorrectiveMaintenances } from "src/store/atom.js";
 import { formatDateToBRL } from "src/hooks/formatters/formatDateToBRL";
+import { stateOpenModal } from "src/store/atom";
 
 export default function TableManutencaoCorretiva() {
   const allCorrectiveMaintenances = useRecoilValue(stateAllCorrectiveMaintenances);
+  const setOpenModal = useSetRecoilState(stateOpenModal);
 
   useEffect(() => {
     console.log('allCorrectiveMaintenances', allCorrectiveMaintenances)
@@ -48,10 +50,17 @@ export default function TableManutencaoCorretiva() {
                 </td>
                 <td>
                   <div className="button__container">
-                    <button className="button button__view">
+                    <button 
+                      onClick={() => setOpenModal('view')}
+                      className="button button__view"
+                    >
                       <i className="fas fa-eye"></i> Ver
                     </button>
-                    <button className="button button__edit">
+
+                    <button 
+                      onClick={() => setOpenModal('edit')}
+                      className="button button__edit"
+                    >
                       <i className="fas fa-edit"></i> Editar
                     </button>
                   </div>

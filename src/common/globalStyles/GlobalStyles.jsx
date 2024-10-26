@@ -38,14 +38,14 @@ const GlobalStyles = createGlobalStyle`
   }
 
   ::-webkit-scrollbar-thumb {
-    background-color: ${({ theme }) => theme.colors.mediumGray};
+    background-color: ${({ theme }) => theme.colors.coolGray};
     padding: .625rem;
     border-radius: .625rem;
     transition: all .3s ease-in-out;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: ${({ theme }) => theme.colors.mediumGray};
+    background: ${({ theme }) => theme.colors.coolGray};
   }
 
   ::-webkit-scrollbar-track {

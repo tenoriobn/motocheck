@@ -33,7 +33,7 @@ export const FilterInputContainer = styled.div`
     padding: .75rem;
     width: 100%;
     background: ${({ theme }) => theme.colors.jetBlack};
-    border: .0625rem solid ${({ theme }) => theme.colors.darkBlue};
+    border: .0625rem solid ${({ theme }) => theme.colors.coolGray};
     box-sizing: border-box;
     transition: all .2s ease-in-out;
 
@@ -52,7 +52,7 @@ export const FilterSelectContainer = styled.div`
   select {
     background: ${({ theme }) => theme.colors.jetBlack};
     color: ${({ theme }) => theme.colors.white};
-    border: .0625rem solid ${({ theme }) => theme.colors.darkBlue};
+    border: .0625rem solid ${({ theme }) => theme.colors.coolGray};
     padding: .625rem;
     border-radius: .3125rem;
     -webkit-appearance: none;

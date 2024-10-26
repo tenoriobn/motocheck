@@ -10,15 +10,15 @@ export const Main = styled.div`
 `;
 
 export const LinkItem = styled(Link)`
-  background-color: ${({ theme }) => theme.colors.primaryBlue};
-  color: ${({ theme }) => theme.colors.white};
   border: none;
-  border-radius: .3125rem;
-  padding: .625rem .9375rem;
-  cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: .3125rem;
+  cursor: pointer;
+  background-color: ${({ theme }) => theme.colors.primaryBlue};
+  color: ${({ theme }) => theme.colors.white};
+  border-radius: .3125rem;
+  padding: .625rem .9375rem;
   transition: all .2s ease-in-out;
 
   &:hover {

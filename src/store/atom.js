@@ -10,6 +10,7 @@ export const stateUserDate = atom({
   default: {}
 })
 
+// Ativa e desativa Menu Mobile
 export const stateMenuActive = atom({
   key: 'menuActive',
   default: false,
@@ -19,4 +20,10 @@ export const stateMenuActive = atom({
 export const stateAllCorrectiveMaintenances = atom({
   key: 'allCorrectiveMaintenances',
   default: []
+})
+
+// Estados envolvendo modal
+export const stateOpenModal = atom({
+  key: 'openModal',
+  default: null
 })
