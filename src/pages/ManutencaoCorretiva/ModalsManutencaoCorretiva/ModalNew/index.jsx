@@ -1,50 +1,66 @@
-import { ModalForm } from "../../../../common/styles/modalsStyles";
+import { ModalForm } from "src/common/styles/modalsStyles";
+import useRegisterManutencaoCadastrada from "src/hooks/manutencaoCorretiva/useRegisterManutencaoCadastrada";
 
 export default function ModalNew() {
-  const handleSaveChanges = async (event) => {
-    event.preventDefault();
-
-    try {
-      // lógica aqui
-
-    } catch (error) {
-      console.error("Erro ao enviar dados:", error);
-    }
-  };
+  const {
+    vehiclePlate,
+    setVehiclePlate,
+    newMaintenanceInfo,
+    setNewMaintenanceInfo,
+    handleCreate,
+  } = useRegisterManutencaoCadastrada();
 
   return (
-    <ModalForm id="frmAddPack" onSubmit={handleSaveChanges}>
-      <label htmlFor="frm_add_price">
-        Telefone do Afiliado
+    <ModalForm id="frmAddPack" onSubmit={handleCreate}>
+      <label htmlFor="vehicle_plate">
+        Placa do Veículo
         <input
-          format="(##) #####-####"
           type="text"
-          name="cellphone"
+          id="vehicle_plate"
+          placeholder="Ex: GHJ1234"
+          value={vehiclePlate || ''}
+          onChange={(e) => setVehiclePlate(e.target.value)}
           required
         />
       </label>
 
-      <label htmlFor="porcentagem">
-        Porcentagem
+      <label htmlFor="appointment_date">
+        Data de agendamento
         <input
-          type="text"
-          className="tax"
-          name="service_charge"
-          id="tax"
+          type="date"
+          id="appointment_date"
+          placeholder="Ex: 01/01/2024"
+          value={newMaintenanceInfo.dataManutencao || ''}
+          onChange={(e) => setNewMaintenanceInfo({ ...newMaintenanceInfo, dataManutencao: e.target.value})}
+          required
         />
       </label>
 
-      <label htmlFor="frm_add_most_popular">
-        Mais Popular
-        <select 
-          id="frm_add_most_popular" 
-          name="type"
-        >
-          <option value="afiliado">Afiliado</option>
-        </select>
+      <label htmlFor="km_maintenance">
+        Km Manutenção
+        <input
+          type="number"
+          id="km_maintenance"
+          placeholder="Ex: 127659"
+          value={newMaintenanceInfo.kmManutencao || ''}
+          onChange={(e) => setNewMaintenanceInfo({ ...newMaintenanceInfo, kmManutencao: e.target.value})}
+          required
+        />
       </label>
-      
-      <button type="submit">Adicionar</button>
+
+      <label htmlFor="maintenance_description">
+        Descrição
+        <input
+          type="text"
+          id="maintenance_description"
+          placeholder="Ex: Troca de óleo e vela..."
+          value={newMaintenanceInfo.descricaoManutencao || ''}
+          onChange={(e) => setNewMaintenanceInfo({ ...newMaintenanceInfo, descricaoManutencao: e.target.value})}
+          required
+        />
+      </label>
+
+      <button type="submit">Criar</button>
     </ModalForm>
   );
 }

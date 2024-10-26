@@ -4,7 +4,7 @@ import { Status } from "./statusStyles";
 export const ModalForm = styled.form`
   display: flex;
   flex-direction: column;
-  gap: .75rem;
+  gap: 1rem;
   font-size: .9rem;
   width: 100%;
 
@@ -19,7 +19,7 @@ export const ModalForm = styled.form`
   }
 
   input, select {
-    margin-top: .75rem;
+    margin-top: .5rem;
 
     &:focus {
       border-color: ${({ theme }) => theme.colors.primaryBlue};
@@ -40,7 +40,7 @@ export const ModalForm = styled.form`
   }
 `;
 
-export const ModalViewInfoContainer = styled.div`
+export const ModalViewInfoContainer = styled.table`
   border-collapse: separate;
   width: 100%;
   font-size: .9rem;
@@ -75,7 +75,7 @@ export const ModalViewInfoContainer = styled.div`
   .maintenance__info-title {
     font-weight: 600;
     padding-right: 1rem;
-    width: 90px;
+    width: 186px;
   }
 
   .maintenance__description {

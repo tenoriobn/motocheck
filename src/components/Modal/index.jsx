@@ -14,7 +14,6 @@ const ModalContainer = styled.div`
   right: 0;
   overflow-y: auto;
   background-color: ${({ theme }) => theme.colors.transparentBlack};
-  padding: 3rem 0;
   width: 100%;
   height: 100%;
   z-index: 99;
@@ -71,7 +70,7 @@ const ModalContainer = styled.div`
 export default function Modal({ title, children, openModal, maxWidth }) {
   const setOpenModal = useSetRecoilState(stateOpenModal);
   const modalRef = useRef(null);
-  useOutsideClick(modalRef, openModal, () => setOpenModal(null));
+  useOutsideClick(modalRef, openModal, setOpenModal);
 
   return (
     openModal && (

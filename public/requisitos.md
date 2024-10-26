@@ -1,4 +1,4 @@
-- Criar base do Modal para os modais de criar, editar e ver;
+OK - Criar base do Modal para os modais de criar, editar e ver;
 - Fazer integração com back-end de alguma das seções;
 - Adicionar dados do usuário no sidebar (Nome, identificador e rastreio de ip);
 - Ajustar posição do icone do v-libras para não cobrir elementos;

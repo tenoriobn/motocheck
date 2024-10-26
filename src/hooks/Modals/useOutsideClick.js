@@ -1,14 +1,15 @@
 import { useEffect } from 'react';
 
-function useOutsideClick(ref, open, onClose) {
+function useOutsideClick(ref, openModal, setOpenModal) {
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (ref.current && !ref.current.contains(event.target)) {
-        onClose();
+        setOpenModal();
       }
     };
 
-    if (open) {
+    if (openModal) {
       document.body.style.overflow = 'hidden';
       document.addEventListener('mousedown', handleClickOutside);
     } else {
@@ -19,7 +20,7 @@ function useOutsideClick(ref, open, onClose) {
       document.removeEventListener('mousedown', handleClickOutside);
       document.body.style.overflow = 'auto';
     };
-  }, [open, onClose, ref]);
+  }, [openModal, setOpenModal, ref]);
 }
 
 export default useOutsideClick;

@@ -27,3 +27,8 @@ export const stateOpenModal = atom({
   key: 'openModal',
   default: null
 })
+
+export const stateModalInfo = atom({
+  key: 'stateModalInfo',
+  default: null
+})

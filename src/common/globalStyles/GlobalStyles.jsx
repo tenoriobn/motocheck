@@ -21,7 +21,7 @@ const GlobalStyles = createGlobalStyle`
       text-decoration: none;
     }
 
-    button, input, select {
+    button, input, textarea, select {
       font-family: ${({ theme }) => theme.montserrat};
       outline: none;
       font-size: 1rem;

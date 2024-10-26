@@ -1,16 +1,14 @@
 import { useState } from 'react';
 import { apiClient } from 'src/http/http';
 
-export const usePutApi = (rota, token) => {
+export const usePutApi = () => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  const putData = async (dados) => {
+  const putData = async (rota, dados) => {
     setLoading(true);
     try {
-      const response = await apiClient.put(rota, dados, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const response = await apiClient.put(rota, dados);
       return response.data;
     } catch (err) {
       setError(err);

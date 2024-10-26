@@ -6,6 +6,7 @@ import Title from "src/components/Title";
 import SearchFilterManutencaoCorretiva from "./SearchFilterManutencaoCorretiva";
 import TableManutencaoCorretiva from "./TableManutencaoCorretiva";
 import ModalsManutencaoCorretiva from "./ModalsManutencaoCorretiva";
+import { ToastContainer } from "react-toastify";
 
 export default function ManutencaoCorretiva() {
   const setOpenModal = useSetRecoilState(stateOpenModal);
@@ -30,6 +31,8 @@ export default function ManutencaoCorretiva() {
       </Main>
 
       <ModalsManutencaoCorretiva />
+
+      <ToastContainer />
     </section>
   )
 }
