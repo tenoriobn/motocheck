@@ -4,8 +4,8 @@ import styled from "styled-components";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { stateMenuActive, stateUserDate } from "src/store/atom.js";
 import links from "./links.json";
-import { removerToken } from "src/http/http";
 import { Transition } from "src/common/styles/transitionsStyles";
+import { removeCookieData } from "src/services/cookieService";
 
 const ContainerSidebar = styled.div`
   background: ${({ theme }) => theme.colors.darkGray};
@@ -128,7 +128,7 @@ export default function Sidebar() {
   const userDate = useRecoilValue(stateUserDate);
 
   const handleLogout = () => {
-    removerToken();
+    removeCookieData();
     navigate('/');
   }
   

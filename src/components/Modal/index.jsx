@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { useRef } from "react";
 import { useSetRecoilState } from "recoil";
 import styled from "styled-components"

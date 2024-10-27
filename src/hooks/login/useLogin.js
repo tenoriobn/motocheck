@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { stateUserDate } from 'src/store/atom.js';
 import { usePostApi } from '../api/usePostApi';
-import { salvarToken } from 'src/http/http';
+import { saveCookieData } from 'src/services/cookieService';
 
 export const useLogin = () => {
   const [login, setLogin] = useState('');
@@ -19,8 +19,10 @@ export const useLogin = () => {
     try {
       const response = await postData('/usuarios/authenticate', { login, senha });
 
+      console.log('response: ', response)
+
       if (response && response.token) {
-        salvarToken(response);
+        saveCookieData(response);
         setUserData(response);
         navigate('/dashboard');
       } else {
@@ -28,6 +30,8 @@ export const useLogin = () => {
       }
     } catch (error) {
       toast.error(error?.response?.data?.response || 'Erro ao fazer login');
+
+      console.log(error)
     }
   };
 

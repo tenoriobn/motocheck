@@ -1,27 +1,25 @@
-/* eslint-disable react/prop-types */
 import { useEffect } from "react";
 import { useRecoilState } from "recoil";
 import { stateUserDate } from "src/store/atom.js";
 import { useNavigate } from "react-router-dom";
-import Cookies from 'js-cookie';
+import { getCookieData } from "src/services/cookieService";
 
 export default function ProtectedRoute({ element }) {
   const [userData, setUserData] = useRecoilState(stateUserDate);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const userDataInfo = Cookies.get('userDataInfo');
+    const userDataInfo = getCookieData('userDataInfo');
     
     if (userDataInfo) {
-      const parsedData = JSON.parse(userDataInfo);
-      setUserData(parsedData);
+      setUserData(userDataInfo);
     } else {
       navigate('/', { replace: true });
     }
   }, [setUserData, navigate]);
 
 
-  if (!userData) {
+  if (!userData.token) {
     return null;
   }
 
