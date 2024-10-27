@@ -1,12 +1,13 @@
 import { createGlobalStyle } from "styled-components";
+import { Transition } from "../styles/transitionsStyles";
 
 const GlobalStyles = createGlobalStyle`
   body {
+    outline: none;
     padding: 0;
     margin: 0;
     background: ${({ theme }) => theme.colors.jetBlack};
     box-sizing: border-box;
-    outline: none;
     color: ${({ theme }) => theme.colors.white};
     font-family: ${({ theme }) => theme.font.montserrat};
     min-height: 100vh;
@@ -22,8 +23,8 @@ const GlobalStyles = createGlobalStyle`
     }
 
     button, input, textarea, select {
-      font-family: ${({ theme }) => theme.montserrat};
       outline: none;
+      font-family: ${({ theme }) => theme.montserrat};
       font-size: 1rem;
     }
     
@@ -41,7 +42,7 @@ const GlobalStyles = createGlobalStyle`
     background-color: ${({ theme }) => theme.colors.coolGray};
     padding: .625rem;
     border-radius: .625rem;
-    transition: all .3s ease-in-out;
+    ${Transition}
   }
 
   ::-webkit-scrollbar-thumb:hover {

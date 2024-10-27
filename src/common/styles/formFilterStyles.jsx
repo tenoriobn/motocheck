@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Transition } from "./transitionsStyles";
 
 export const Form = styled.form`
   display: flex;
@@ -35,7 +36,7 @@ export const FilterInputContainer = styled.div`
     background: ${({ theme }) => theme.colors.jetBlack};
     border: .0625rem solid ${({ theme }) => theme.colors.coolGray};
     box-sizing: border-box;
-    transition: all .2s ease-in-out;
+    ${Transition}
 
     &:focus {
       border-color: ${({ theme }) => theme.colors.primaryBlue};
@@ -62,7 +63,7 @@ export const FilterSelectContainer = styled.div`
     width: 100%;
     line-height: normal;
     padding-right: 1.875rem;
-    transition: all .2s ease-in-out;
+    ${Transition}
 
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
     background-position: right .5rem center;
@@ -83,7 +84,7 @@ export const ButtonSearchForm = styled.button`
   color: ${({ theme }) => theme.colors.white};
   padding: .75rem .9375rem;
   height: 44px;
-  transition: all .2s ease-in-out;
+  ${Transition}
   min-width: 112px;
 
   &:hover {

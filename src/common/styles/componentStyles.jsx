@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { Transition } from "./transitionsStyles";
 
 export const Main = styled.div`
   padding: .75rem;
@@ -19,7 +20,7 @@ export const LinkItem = styled(Link)`
   color: ${({ theme }) => theme.colors.white};
   border-radius: .3125rem;
   padding: .625rem .9375rem;
-  transition: all .2s ease-in-out;
+  ${Transition}
 
   &:hover {
     opacity: .8;

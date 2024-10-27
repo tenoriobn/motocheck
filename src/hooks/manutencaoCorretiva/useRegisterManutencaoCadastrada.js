@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 import { useSetRecoilState } from "recoil";
 import { useFetchApi } from "src/hooks/api/useFetchApi";
 import { usePostApi } from "src/hooks/api/usePostApi";
-import { stateOpenModal } from "../../store/atom";
+import { stateOpenModal } from "src/store/atom";
 
 function useRegisterManutencaoCadastrada() {
   const [vehiclePlate, setVehiclePlate] = useState('');

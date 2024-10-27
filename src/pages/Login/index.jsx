@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useLogin } from '../../hooks/login/useLogin';
+import { useLogin } from 'src/hooks/login/useLogin';
+import { Transition } from "src/common/styles/transitionsStyles";
 
 const LoginContainer = styled.section`
   display: flex;
@@ -67,7 +68,7 @@ const Form = styled.form`
     padding: 1.15rem;
     width: 100%;
     box-sizing: border-box;
-    transition: all .3s ease-in-out;
+    ${Transition}
 
     &:focus {
       border: .125rem solid ${({ theme }) => theme.colors.darkGreen};
@@ -83,7 +84,7 @@ const Form = styled.form`
     font-weight: 500;
     width: 100%;
     padding: 1.25rem;
-    transition: all .3s ease-in-out;
+    ${Transition}
 
     &:hover {
       background-color: ${({ theme }) => theme.colors.darkGreen};

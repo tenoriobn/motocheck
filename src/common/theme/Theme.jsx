@@ -18,6 +18,8 @@ const Theme = {
     red: '#ee3225',
     goldenYellow: '#f4b400',
     mediumBlue: '#4e73df',
+    deepTeal: '#1f3349',
+    oceanBlue: '#275680'
 
   },
   font: {

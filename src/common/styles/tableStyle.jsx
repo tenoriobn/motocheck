@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Status } from "./statusStyles";
+import { Transition } from "./transitionsStyles";
 
 export const Table = styled.table`
   border-collapse: separate;
@@ -62,7 +63,7 @@ export const Table = styled.table`
     font-weight: 600;
     font-size: .875rem;
     text-transform: uppercase;
-    transition: all .2s ease-in-out;
+    ${Transition}
     padding: 0 .9375rem;
     width: 100%;
     max-width: 110px;

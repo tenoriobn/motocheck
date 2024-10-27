@@ -1,28 +1,27 @@
 /* eslint-disable react/prop-types */
 import { useEffect } from "react";
 import { useRecoilState } from "recoil";
-import { stateUserLogin } from "src/store/atom.js";
+import { stateUserDate } from "src/store/atom.js";
 import { useNavigate } from "react-router-dom";
 import Cookies from 'js-cookie';
-import { jwtDecode } from 'jwt-decode';
 
 export default function ProtectedRoute({ element }) {
-  const [userLogin, setUserLogin] = useRecoilState(stateUserLogin);
+  const [userData, setUserData] = useRecoilState(stateUserDate);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const token = Cookies.get('token');
-    if (token) {
-      setUserLogin(token);
-
-      console.log('token: ', jwtDecode(token))
+    const userDataInfo = Cookies.get('userDataInfo');
+    
+    if (userDataInfo) {
+      const parsedData = JSON.parse(userDataInfo);
+      setUserData(parsedData);
     } else {
       navigate('/', { replace: true });
     }
-  }, [setUserLogin, navigate]);
+  }, [setUserData, navigate]);
 
 
-  if (!userLogin) {
+  if (!userData) {
     return null;
   }
 

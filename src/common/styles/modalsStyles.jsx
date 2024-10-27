@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Status } from "./statusStyles";
+import { Transition } from "./transitionsStyles";
 
 export const ModalForm = styled.form`
   display: flex;
@@ -32,7 +33,7 @@ export const ModalForm = styled.form`
     color: #fff;
     font-weight: 500;
     margin-top: .75rem;
-    transition: all .2s ease-in-out;
+    ${Transition}
   }
 
   button:hover {

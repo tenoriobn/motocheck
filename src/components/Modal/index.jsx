@@ -4,6 +4,7 @@ import { useSetRecoilState } from "recoil";
 import styled from "styled-components"
 import { stateOpenModal } from "src/store/atom";
 import useOutsideClick from "src/hooks/Modals/useOutsideClick";
+import { Transition } from "src/common/styles/transitionsStyles";
 
 const ModalContainer = styled.div`
   display: flex;
@@ -51,7 +52,7 @@ const ModalContainer = styled.div`
     font-size: 1rem;
     color: ${({ theme }) => theme.colors.white};
     padding: .75rem 1rem;
-    transition: all .2s ease-in-out;
+    ${Transition}
   }
 
   .close-button:hover {

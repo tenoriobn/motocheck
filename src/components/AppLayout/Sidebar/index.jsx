@@ -5,18 +5,19 @@ import { useRecoilState, useRecoilValue } from "recoil";
 import { stateMenuActive, stateUserDate } from "src/store/atom.js";
 import links from "./links.json";
 import { removerToken } from "src/http/http";
+import { Transition } from "src/common/styles/transitionsStyles";
 
 const ContainerSidebar = styled.div`
-  background: #20202a;
+  background: ${({ theme }) => theme.colors.darkGray};
   box-sizing: border-box;
-  box-shadow: .1875rem .0625rem .625rem -0.5625rem #000;
+  box-shadow: .1875rem .0625rem .625rem -0.5625rem ${({ theme }) => theme.colors.black};
   position: fixed;
   top: 0;
   bottom: 0;
   left: ${(props) => (props.$menuActive ? "0px" : "-304px")};
   padding: .5rem;
   overflow-x: auto;
-  transition: .5s;
+  ${Transition}
   width: 300px;
   z-index: 99;
 
@@ -35,12 +36,12 @@ const ContainerSidebar = styled.div`
 `;
 
 const MenuHeader = styled.div`
-  background: #20202a;
+  background: ${({ theme }) => theme.colors.darkGray};
   text-align: center;
   line-height: 1.125rem;
   margin-top: 2.5rem;
   padding-bottom: 2.125rem;
-  border-bottom: .0625rem solid #100f0f;
+  border-bottom: .0625rem solid ${({ theme }) => theme.colors.deepGray};
   border-bottom-left-radius: .625rem;
   border-bottom-right-radius: .625rem;
 
@@ -48,23 +49,24 @@ const MenuHeader = styled.div`
     background: none;
     border: none;
     cursor: pointer;
-    color: #f5f5f5;
+    color: ${({ theme }) => theme.colors.white};
     font-size: 1rem;
     margin-bottom: 1.5rem;
+    ${Transition}
+
+    &:hover {
+      opacity: .8;
+    }
   }
 
   .user-info {
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-
-  .info-site {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 228px;
-    text-align: center;
+    gap: .25rem;
+    justify-content: center;
+    text-transform: capitalize;
+    text-align: left;
   }
 `;
 
@@ -74,24 +76,23 @@ const MenuBody = styled.div`
   ul li a {
     cursor: pointer;
     display: block;
-    background: #20202a;
+    background: ${({ theme }) => theme.colors.darkGray};
     padding: 1rem 1rem 1rem 1.875rem;
     border-top-left-radius: .625rem;
-    border-bottom: .125rem solid #2a2b37;
+    border-bottom: .125rem solid ${({ theme }) => theme.colors.mediumGray};
     border-bottom-left-radius: .625rem;
     border-bottom-right-radius: .625rem;
     text-transform: uppercase;
   }
 
   ul li a:hover {
-    background-color: #1f3349;
-    border-right: .4375rem solid #275680;
-    border: none;
+    background-color: ${({ theme }) => theme.colors.deepTeal};
+    border-color: ${({ theme }) => theme.colors.deepTeal};
   }
 
   .active {
-    background-color: #428534!important;
-    border-right: .4375rem solid #4eac3a!important;
+    background-color: ${({ theme }) => theme.colors.darkGreen}!important;
+    border-right: .4375rem solid ${({ theme }) => theme.colors.primaryGreen}!important;
     border: none;
   }
 
@@ -140,8 +141,9 @@ export default function Sidebar() {
           <i className="fas fa-external-link-alt" aria-hidden="true"></i> Sair
         </button>
         <div className="user-info">
-          <p>Cliente: {userDate.id} - {userDate.name}</p>
-          <p className="info-site">Site: {userDate.id} - {userDate.email}</p>
+          <p>ID: {userDate.idUsuario}</p>
+          <p>DOC: {userDate.cpf}</p>
+          <p>{userDate.usuario}</p>
         </div>
       </MenuHeader>
 
