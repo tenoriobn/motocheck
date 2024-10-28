@@ -1,43 +1,47 @@
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { Table } from "src/common/styles/tableStyle";
-import { stateCorrectiveMaintenanceInfoTable } from "src/store/atom.js";
+import { stateVehicleInfoTable } from "src/store/atom.js";
 import { formatDateToBRL } from "src/hooks/formatters/formatDateToBRL";
 import { stateOpenModal, stateModalInfo } from "src/store/atom";
 
-export default function TableManutencaoCorretiva() {
-  const correctiveMaintenanceInfoTable = useRecoilValue(stateCorrectiveMaintenanceInfoTable);
+export default function TableCadastrarVeiculo() {
+  const vehicleInfoTable = useRecoilValue(stateVehicleInfoTable);
   const setOpenModal = useSetRecoilState(stateOpenModal);
   const setModalInfo = useSetRecoilState(stateModalInfo);
 
   return (
     <>
-      {correctiveMaintenanceInfoTable.length > 0 &&
+      {vehicleInfoTable.length > 0 &&
         <Table>
           <thead>
             <tr>
               <th>#</th>
+              <th>ID</th>
               <th>Modelo</th>
+              <th>Ano</th>
               <th>Placa</th>
-              <th>Agendamento</th>
+              <th>Data de Aquisição</th>
               <th>Status</th>
               <th>Ações</th>
             </tr>
           </thead>
           <tbody>
 
-            {correctiveMaintenanceInfoTable.map((maintenance) => (
-              <tr key={maintenance.id}>
-                <td>{maintenance.id}</td>
-                <td>{maintenance.modelo}</td>
-                <td>{maintenance.placa}</td>
-                <td>{formatDateToBRL(maintenance.dataManutencao)}</td>
+            {vehicleInfoTable.map((info, index) => (
+              <tr key={info.idVeiculo}>
+                <td>{index + 1}</td>
+                <td>{info.idVeiculo}</td>
+                <td>{info.modelo}</td>
+                <td>{info.ano}</td>
+                <td>{info.placa}</td>
+                <td>{formatDateToBRL(info.dataAquisicao)}</td>
                 <td>
                   <span 
-                    className={`status status__${maintenance.statusVeiculo === "Manutenção" 
-                      ? "maintenance" : maintenance.statusVeiculo === "Disponivel"? "inactive" : "active"
+                    className={`status status__${info.statusVeiculo === "Manutenção" 
+                      ? "maintenance" : info.statusVeiculo === "Disponivel"? "inactive" : "active"
                     }`}
                   >
-                    {maintenance.statusVeiculo}
+                    {info.statusVeiculo}
                   </span>
                 </td>
                 <td>
@@ -45,7 +49,7 @@ export default function TableManutencaoCorretiva() {
                     <button 
                       onClick={() => {
                         setOpenModal('view')
-                        setModalInfo(maintenance)
+                        setModalInfo(info)
                       }}
                       className="button button__view"
                     >
@@ -55,7 +59,7 @@ export default function TableManutencaoCorretiva() {
                     <button 
                       onClick={() => {
                         setOpenModal('edit')
-                        setModalInfo(maintenance)
+                        setModalInfo(info)
                       }}
                       className="button button__edit"
                     >

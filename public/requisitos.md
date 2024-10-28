@@ -7,6 +7,7 @@ OK - Adicionar dados do usuário no sidebar (Nome, identificador e rastreio de i
 - Corrigir transition e concentrar em um local só para globalizar e facilitar manutenção;
 - Centralizar e padronizar `hover, focus e etc` utilizando `opacity` para facilitar manutenção.
 - Correção das cores do sistema;
+- Mudar icones de acordo com a página
 
   // COLOQUEI A ROTA DA MANUTENÇÃO PROGRAMADA NO COMPONENTE DE
   MANUTENÇÃO PREVENTIVA POR ENQUANTO, ALÉM DISSO FALTA SINCRONIZAR COM A TABELA

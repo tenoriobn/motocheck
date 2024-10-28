@@ -1,43 +1,38 @@
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { Table } from "src/common/styles/tableStyle";
-import { stateCorrectiveMaintenanceInfoTable } from "src/store/atom.js";
-import { formatDateToBRL } from "src/hooks/formatters/formatDateToBRL";
+import { statePersonsTableInfo } from "src/store/atom.js";
 import { stateOpenModal, stateModalInfo } from "src/store/atom";
 
-export default function TableManutencaoCorretiva() {
-  const correctiveMaintenanceInfoTable = useRecoilValue(stateCorrectiveMaintenanceInfoTable);
+export default function TableGerenciarPessoa() {
+  const personsTableInfo = useRecoilValue(statePersonsTableInfo);
   const setOpenModal = useSetRecoilState(stateOpenModal);
   const setModalInfo = useSetRecoilState(stateModalInfo);
 
   return (
     <>
-      {correctiveMaintenanceInfoTable.length > 0 &&
+      {personsTableInfo.length > 0 &&
         <Table>
           <thead>
             <tr>
-              <th>#</th>
-              <th>Modelo</th>
-              <th>Placa</th>
-              <th>Agendamento</th>
-              <th>Status</th>
-              <th>Ações</th>
+              <th>ID</th>
+              <th>Nome</th>
+              <th>Cargo</th>
+              <th>Ações</th> 
             </tr>
           </thead>
           <tbody>
 
-            {correctiveMaintenanceInfoTable.map((maintenance) => (
-              <tr key={maintenance.id}>
-                <td>{maintenance.id}</td>
-                <td>{maintenance.modelo}</td>
-                <td>{maintenance.placa}</td>
-                <td>{formatDateToBRL(maintenance.dataManutencao)}</td>
+            {personsTableInfo.map((info) => (
+              <tr key={info.idPessoa}>
+                <td>{info.idPessoa}</td>
+                <td>{info.nome}</td>
                 <td>
                   <span 
-                    className={`status status__${maintenance.statusVeiculo === "Manutenção" 
-                      ? "maintenance" : maintenance.statusVeiculo === "Disponivel"? "inactive" : "active"
+                    className={`status status__${info.cargo === "Mecânico" 
+                      ? "maintenance" : info.cargo === "Não Informado" ? "inactive" : "active"
                     }`}
                   >
-                    {maintenance.statusVeiculo}
+                    {info.cargo}
                   </span>
                 </td>
                 <td>
@@ -45,7 +40,7 @@ export default function TableManutencaoCorretiva() {
                     <button 
                       onClick={() => {
                         setOpenModal('view')
-                        setModalInfo(maintenance)
+                        setModalInfo(info)
                       }}
                       className="button button__view"
                     >
@@ -55,7 +50,7 @@ export default function TableManutencaoCorretiva() {
                     <button 
                       onClick={() => {
                         setOpenModal('edit')
-                        setModalInfo(maintenance)
+                        setModalInfo(info)
                       }}
                       className="button button__edit"
                     >

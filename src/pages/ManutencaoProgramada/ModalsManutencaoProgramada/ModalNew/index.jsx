@@ -1,40 +1,29 @@
-import { useEffect, useState } from "react";
-import { useRecoilValue } from "recoil";
 import { ModalForm } from "src/common/styles/modalsStyles";
-import { stateModalInfo } from "src/store/atom";
-import { usePutApi } from "src/hooks/api/usePutApi";
+import useRegisterManutencaoCadastrada from "src/hooks/manutencaoCorretiva/useRegisterManutencaoCadastrada";
 
-export default function ModalEdit() {
-  const modalInfo = useRecoilValue(stateModalInfo);
-  const [newMaintenanceInfo, setNewMaintenanceInfo] = useState({});
-  const { putData } = usePutApi(true)
-
-  useEffect(() => {
-    setNewMaintenanceInfo({
-      idVeiculo: modalInfo.idVeiculo,
-      dataManutencao: modalInfo.dataManutencao,
-      descricaoManutencao: modalInfo.descricaoManutencao,
-      kmManutencao: modalInfo.kmManutencao
-    });
-  }, [modalInfo])
-
-  const handleEdit = async (event) => {
-    event.preventDefault();
-
-    try {
-      // lógica aqui
-
-      const response = await putData('/manutencao/programada/atualizar', newMaintenanceInfo);
-
-      console.log('response', response)
-
-    } catch (error) {
-      console.error("Erro ao enviar dados:", error);
-    }
-  };
+export default function ModalNew() {
+  const {
+    vehiclePlate,
+    setVehiclePlate,
+    newMaintenanceInfo,
+    setNewMaintenanceInfo,
+    handleCreate,
+  } = useRegisterManutencaoCadastrada();
 
   return (
-    <ModalForm id="frmAddPack" onSubmit={handleEdit}>
+    <ModalForm id="frmAddPack" onSubmit={handleCreate}>
+      <label htmlFor="vehicle_plate">
+        Placa do Veículo
+        <input
+          type="text"
+          id="vehicle_plate"
+          placeholder="Ex: GHJ1234"
+          value={vehiclePlate || ''}
+          onChange={(e) => setVehiclePlate(e.target.value)}
+          required
+        />
+      </label>
+
       <label htmlFor="appointment_date">
         Data de agendamento
         <input

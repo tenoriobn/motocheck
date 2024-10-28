@@ -1,17 +1,17 @@
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { Table } from "src/common/styles/tableStyle";
-import { stateCorrectiveMaintenanceInfoTable } from "src/store/atom.js";
+import { stateScheduledMaintenanceInfoTable } from "src/store/atom.js";
 import { formatDateToBRL } from "src/hooks/formatters/formatDateToBRL";
 import { stateOpenModal, stateModalInfo } from "src/store/atom";
 
-export default function TableManutencaoCorretiva() {
-  const correctiveMaintenanceInfoTable = useRecoilValue(stateCorrectiveMaintenanceInfoTable);
+export default function TableManutencaoProgramada() {
+  const scheduledMaintenanceInfoTable = useRecoilValue(stateScheduledMaintenanceInfoTable);
   const setOpenModal = useSetRecoilState(stateOpenModal);
   const setModalInfo = useSetRecoilState(stateModalInfo);
 
   return (
     <>
-      {correctiveMaintenanceInfoTable.length > 0 &&
+      {scheduledMaintenanceInfoTable.length > 0 &&
         <Table>
           <thead>
             <tr>
@@ -25,7 +25,7 @@ export default function TableManutencaoCorretiva() {
           </thead>
           <tbody>
 
-            {correctiveMaintenanceInfoTable.map((maintenance) => (
+            {scheduledMaintenanceInfoTable.map((maintenance) => (
               <tr key={maintenance.id}>
                 <td>{maintenance.id}</td>
                 <td>{maintenance.modelo}</td>

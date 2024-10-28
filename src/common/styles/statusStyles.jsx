@@ -9,7 +9,8 @@ export const Status = css`
   text-align: center;
   text-transform: uppercase;
   padding: .5rem .75rem;
-  max-width: 136px;
+  min-width: 136px;
+  max-width: 160px;
   width: 100%;
 
   &.status__active {

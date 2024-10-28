@@ -71,7 +71,7 @@ export default function ModalEdit() {
         />
       </label>
 
-      <button type="submit">Editar</button>
+      <button type="submit">Cadastrar</button>
     </ModalForm>
   );
 }

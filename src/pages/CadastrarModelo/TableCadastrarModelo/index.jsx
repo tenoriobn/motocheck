@@ -1,21 +1,31 @@
-import { useRecoilValue, useSetRecoilState } from "recoil";
+import { useRecoilValue, useResetRecoilState, useSetRecoilState } from "recoil";
 import { Table } from "src/common/styles/tableStyle";
 import { stateCorrectiveMaintenanceInfoTable } from "src/store/atom.js";
 import { formatDateToBRL } from "src/hooks/formatters/formatDateToBRL";
 import { stateOpenModal, stateModalInfo } from "src/store/atom";
+import { useEffect } from "react";
 
-export default function TableManutencaoCorretiva() {
-  const correctiveMaintenanceInfoTable = useRecoilValue(stateCorrectiveMaintenanceInfoTable);
+export default function TableCadastrarModelo() {
+  const allCorrectiveMaintenances = useRecoilValue(stateCorrectiveMaintenanceInfoTable);
   const setOpenModal = useSetRecoilState(stateOpenModal);
   const setModalInfo = useSetRecoilState(stateModalInfo);
+  const resetState = useResetRecoilState(stateCorrectiveMaintenanceInfoTable);
+
+  useEffect(() => {
+    return () => {
+      resetState()
+    };
+  }, []);
 
   return (
     <>
-      {correctiveMaintenanceInfoTable.length > 0 &&
+      {allCorrectiveMaintenances.length > 0 &&
         <Table>
           <thead>
             <tr>
               <th>#</th>
+              {/* <th>ID</th> */}
+              {/* <th>Descrição</th> */}
               <th>Modelo</th>
               <th>Placa</th>
               <th>Agendamento</th>
@@ -25,9 +35,11 @@ export default function TableManutencaoCorretiva() {
           </thead>
           <tbody>
 
-            {correctiveMaintenanceInfoTable.map((maintenance) => (
+            {allCorrectiveMaintenances.map((maintenance) => (
               <tr key={maintenance.id}>
                 <td>{maintenance.id}</td>
+                {/* <td>{maintenance.idVeiculo}</td> */}
+                {/* <td>{maintenance.descricaoManutencao}</td> */}
                 <td>{maintenance.modelo}</td>
                 <td>{maintenance.placa}</td>
                 <td>{formatDateToBRL(maintenance.dataManutencao)}</td>

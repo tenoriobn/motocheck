@@ -4,11 +4,11 @@ import { stateOpenModal } from "src/store/atom";
 import { LinkItem, Main } from "src/common/styles/componentStyles";
 import Header from "src/components/Header";
 import Title from "src/components/Title";
-import SearchFilterManutencaoCorretiva from "./SearchFilterManutencaoCorretiva";
-import TableManutencaoCorretiva from "./TableManutencaoCorretiva";
-import ModalsManutencaoCorretiva from "./ModalsManutencaoCorretiva";
+import SearchFilterManutencaoProgramada from "./SearchFilterManutencaoProgramada";
+import TableManutencaoProgramada from "./TableManutencaoProgramada";
+import ModalsManutencaoProgramada from "./ModalsManutencaoProgramada";
 
-export default function ManutencaoCorretiva() {
+export default function ManutencaoProgramada() {
   const setOpenModal = useSetRecoilState(stateOpenModal);
 
   return (
@@ -16,7 +16,7 @@ export default function ManutencaoCorretiva() {
       <Header>
         <h2>
           <ion-icon name="accessibility-sharp" role="img" class="md hydrated"></ion-icon>
-          Manutenção Corretiva
+          Manutenção Programada
         </h2>
         
         <LinkItem className="button-new" onClick={() => setOpenModal('new')}>
@@ -26,11 +26,11 @@ export default function ManutencaoCorretiva() {
 
       <Main>
         <Title title="Filtros de Busca" />
-        <SearchFilterManutencaoCorretiva />
-        <TableManutencaoCorretiva />
+        <SearchFilterManutencaoProgramada />
+        <TableManutencaoProgramada />
       </Main>
 
-      <ModalsManutencaoCorretiva />
+      <ModalsManutencaoProgramada />
 
       <ToastContainer />
     </section>

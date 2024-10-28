@@ -1,22 +1,22 @@
 import { useState } from "react";
 import { useSetRecoilState } from "recoil";
 import { useFetchApi } from "../api/useFetchApi";
-import { stateCorrectiveMaintenanceInfoTable } from "src/store/atom.js";
+import { stateVehicleInfoTable } from "src/store/atom.js";
 
-export const useSearchFilterManutencaoCorretiva = () => {
+export const useSearchFilterVeiculo = () => {
   const [filtro, setFiltro] = useState({});
   const { data, error, loading, fetchData } = useFetchApi();
-  const setCorrectiveMaintenanceInfoTable = useSetRecoilState(stateCorrectiveMaintenanceInfoTable);
+  const setVehicleInfoTable = useSetRecoilState(stateVehicleInfoTable);
 
   const handleSearch = async (e) => {
     e.preventDefault();
     
     const searchOptions = filtro.searchOption === "plate" ? "placa" : "modelo";
-    const endpoint = `/manutencao/programada/search/${searchOptions}/${filtro.vehicleIdentifier}`;
+    const endpoint = `/veiculos/search/${searchOptions}/${filtro.vehicleIdentifier}`;
 
     try {
       const response = await fetchData(endpoint);
-      setCorrectiveMaintenanceInfoTable(response);
+      setVehicleInfoTable(response);
     } catch (error) {
       console.error("Erro ao buscar dados:", error);
     }
