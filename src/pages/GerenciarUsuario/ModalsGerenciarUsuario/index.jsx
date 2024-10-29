@@ -10,15 +10,15 @@ export default function ModalsGerenciarUsuario() {
 
   return (
     <>
-      <Modal title="Adicionar Pessoa" openModal={openModal === 'new'}>
+      <Modal title="Adicionar Usuário" openModal={openModal === 'new'}>
         <ModalNew />
       </Modal>
 
-      <Modal title="Detalhes da Manutenção" maxWidth={{ maxWidth: '400px' }} openModal={openModal === 'view'}>
+      <Modal title="Detalhes Usuário" maxWidth={{ maxWidth: '400px' }} openModal={openModal === 'view'}>
         <ModalView />
       </Modal>
 
-      <Modal title="Editar Manutenção" openModal={openModal === 'edit'}>
+      <Modal title="Editar Usuário" openModal={openModal === 'edit'}>
         <ModalEdit />
       </Modal>
     </>

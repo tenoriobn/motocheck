@@ -1,8 +1,8 @@
 import { ModalForm } from "src/common/styles/modalsStyles";
-import useEditUser from "src/hooks/gerenciarUsuario/useEditUser";
+import useUpdateUser from "src/hooks/gerenciarUsuario/useUpdateUser";
 
 export default function ModalEdit() {
-  const { userInfo, setUserInfo, handleEdit } = useEditUser();
+  const { userInfo, setUserInfo, handleEdit } = useUpdateUser();
   
   return (
     <ModalForm id="frmAddPack" onSubmit={handleEdit}>

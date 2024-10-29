@@ -1,8 +1,10 @@
 import { ModalForm } from "src/common/styles/modalsStyles";
-import useEditPersons from "src/hooks/gerenciarPessoa/useEditPersons";
+import { useSearchCargo } from "src/hooks/gerenciarPessoa/useSearchCargo";
+import useUpdatePerson from "src/hooks/gerenciarPessoa/useUpdatePerson";
 
 export default function ModalEdit() {
-  const { userInfo, setUserInfo, handleEdit } = useEditPersons();
+  const { userInfo, setUserInfo, handleEdit } = useUpdatePerson();
+  const { cargos } = useSearchCargo();
   
   return (
     <ModalForm id="frmAddPack" onSubmit={handleEdit}>
@@ -52,8 +54,9 @@ export default function ModalEdit() {
           required
         >
           <option value="">Selecione</option>
-          <option value="2">Mecânico</option>
-          <option value="3">Eletricista</option>
+          {cargos && cargos.map((info, index) => (
+            <option key={index} value={info.idCargo}>{info.cargo}</option>
+          ))}
         </select>
       </label>
 

@@ -14,11 +14,11 @@ export default function ModalsGerenciarPessoa() {
         <ModalNew />
       </Modal>
 
-      <Modal title="Detalhes da Manutenção" maxWidth={{ maxWidth: '400px' }} openModal={openModal === 'view'}>
+      <Modal title="Detalhes da Pessoa" maxWidth={{ maxWidth: '400px' }} openModal={openModal === 'view'}>
         <ModalView />
       </Modal>
 
-      <Modal title="Editar Manutenção" openModal={openModal === 'edit'}>
+      <Modal title="Editar Pessoa" openModal={openModal === 'edit'}>
         <ModalEdit />
       </Modal>
     </>

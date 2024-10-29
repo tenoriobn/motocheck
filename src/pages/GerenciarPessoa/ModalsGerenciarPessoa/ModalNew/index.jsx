@@ -1,12 +1,10 @@
 import { ModalForm } from "src/common/styles/modalsStyles";
-import useRegisterPersons from "src/hooks/gerenciarPessoa/useRegisterPersons";
+import useCreatePerson from "src/hooks/gerenciarPessoa/useCreatePerson";
+import { useSearchCargo } from "src/hooks/gerenciarPessoa/useSearchCargo";
 
 export default function ModalNew() {
-  const {
-    userInfo, 
-    setUserInfo,
-    handleCreate,
-  } = useRegisterPersons();
+  const { userInfo, setUserInfo, handleCreate } = useCreatePerson();
+  const { cargos } = useSearchCargo();
 
   return (
     <ModalForm id="frmAddPack" onSubmit={handleCreate}>
@@ -56,8 +54,9 @@ export default function ModalNew() {
           required
         >
           <option value="">Selecione</option>
-          <option value="2">Mecânico</option>
-          <option value="3">Eletricista</option>
+          {cargos && cargos.map((info, index) => (
+            <option key={index} value={info.idCargo}>{info.cargo}</option>
+          ))}
         </select>
       </label>
 

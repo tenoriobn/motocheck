@@ -1,8 +1,8 @@
-import { useSearchFilterVeiculo } from 'src/hooks/cadastrarVeiculo/useSearchFilterVeiculo';
+import { useSearchVeiculo } from 'src/hooks/cadastrarVeiculo/useSearchVeiculo';
 import { ButtonSearchForm, FilterInputContainer, FilterSelectContainer, Form, Label } from 'src/common/styles/formFilterStyles'
 
 export default function SearchFilterCadastrarVeiculo() {
-  const { filtro, setFiltro, handleSearch } = useSearchFilterVeiculo();
+  const { filtro, setFiltro, handleSearch } = useSearchVeiculo();
 
   return (
     <Form onSubmit={handleSearch} method="POST">

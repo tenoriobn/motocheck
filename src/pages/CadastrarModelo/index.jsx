@@ -4,12 +4,13 @@ import { stateOpenModal } from "src/store/atom";
 import { LinkItem, Main } from "src/common/styles/componentStyles";
 import Header from "src/components/Header";
 import Title from "src/components/Title";
-import SearchFilterCadastrarModelo from "./SearchFilterCadastrarModelo";
 import TableCadastrarModelo from "./TableCadastrarModelo";
 import ModalsCadastrarModelo from "./ModalsCadastrarModelo";
+import { useSearchModelo } from "src/hooks/cadastrarModelo/useSearchModelo";
 
 export default function CadastrarModelo() {
   const setOpenModal = useSetRecoilState(stateOpenModal);
+  useSearchModelo();
 
   return (
     <section>
@@ -25,8 +26,7 @@ export default function CadastrarModelo() {
       </Header>
 
       <Main>
-        <Title title="Filtros de Busca" />
-        <SearchFilterCadastrarModelo />
+        <Title title="Tabela dos Modelos" />
         <TableCadastrarModelo />
       </Main>
 

@@ -1,6 +1,5 @@
 import Modal from "src/components/Modal";
 import ModalNew from "./ModalNew";
-import ModalView from "./ModalView";
 import ModalEdit from "./ModalEdit";
 import { useRecoilValue } from "recoil";
 import { stateOpenModal } from "src/store/atom";
@@ -10,15 +9,11 @@ export default function ModalsCadastrarModelo() {
 
   return (
     <>
-      <Modal title="Nova Manutenção" openModal={openModal === 'new'}>
+      <Modal title="Novo Modelo" openModal={openModal === 'new'}>
         <ModalNew />
       </Modal>
 
-      <Modal title="Detalhes da Manutenção" maxWidth={{ maxWidth: '460px' }} openModal={openModal === 'view'}>
-        <ModalView />
-      </Modal>
-
-      <Modal title="Editar Manutenção" openModal={openModal === 'edit'}>
+      <Modal title="Editar Modelo" openModal={openModal === 'edit'}>
         <ModalEdit />
       </Modal>
     </>

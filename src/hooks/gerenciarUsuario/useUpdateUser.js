@@ -1,25 +1,24 @@
-import { useRecoilState, useSetRecoilState } from "recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import { stateModalInfo, stateOpenModal } from "src/store/atom";
 import { usePutApi } from "../api/usePutApi";
+import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import { useEffect } from "react";
 
-const useEditManutencaoProgramada = () => {
-  const [modalInfo, setModalInfo] = useRecoilState(stateModalInfo);
+const useUpdateUser = () => {
+  const modalInfo = useRecoilValue(stateModalInfo);
   const setOpenModal = useSetRecoilState(stateOpenModal);
   const { putData } = usePutApi(true);
+  const [userInfo, setUserInfo] = useState({});
 
   useEffect(() => {
-    console.log('modalInfo: ', modalInfo)
-  }, [modalInfo])
+    setUserInfo(modalInfo);
+  }, [modalInfo]);
 
   const handleEdit = async (event) => {
     event.preventDefault();
-    
-    console.log('userInfo: ', modalInfo);
 
     try {
-      await putData('/manutencao/programada/atualizar', modalInfo);
+      await putData('/pessoas/update', userInfo);
       toast.success('Atualizado com sucesso!');
       setOpenModal(false);
     } catch (error) {
@@ -28,7 +27,7 @@ const useEditManutencaoProgramada = () => {
     }
   };
 
-  return { modalInfo, setModalInfo, handleEdit };
+  return { userInfo, setUserInfo, handleEdit };
 };
 
-export default useEditManutencaoProgramada;
+export default useUpdateUser;

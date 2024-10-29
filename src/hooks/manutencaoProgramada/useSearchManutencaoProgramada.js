@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { useSetRecoilState } from "recoil";
 import { useFetchApi } from "../api/useFetchApi";
-import { stateCorrectiveMaintenanceInfoTable } from "src/store/atom.js";
+import { stateScheduledMaintenanceInfoTable } from "src/store/atom.js";
 
-export const useSearchFilterManutencaoCorretiva = () => {
+export const useSearchManutencaoProgramada = () => {
   const [filtro, setFiltro] = useState({});
   const { data, error, loading, fetchData } = useFetchApi();
-  const setCorrectiveMaintenanceInfoTable = useSetRecoilState(stateCorrectiveMaintenanceInfoTable);
+  const setScheduledMaintenanceInfoTable = useSetRecoilState(stateScheduledMaintenanceInfoTable);
 
   const handleSearch = async (e) => {
     e.preventDefault();
@@ -16,7 +16,7 @@ export const useSearchFilterManutencaoCorretiva = () => {
 
     try {
       const response = await fetchData(endpoint);
-      setCorrectiveMaintenanceInfoTable(response);
+      setScheduledMaintenanceInfoTable(response);
     } catch (error) {
       console.error("Erro ao buscar dados:", error);
     }

@@ -1,8 +1,8 @@
 import { ModalForm } from "src/common/styles/modalsStyles";
-import useEditManutencaoProgramada from "src/hooks/manutencaoProgramada/useEditManutencaoProgramada";
+import useUpdateManutencaoProgramada from "src/hooks/manutencaoProgramada/useUpdateManutencaoProgramada";
 
 export default function ModalEdit() {
-  const { modalInfo, setModalInfo, handleEdit } = useEditManutencaoProgramada();
+  const { modalInfo, setModalInfo, handleEdit } = useUpdateManutencaoProgramada();
   return (
     <ModalForm id="frmAddPack" onSubmit={handleEdit}>
       <label htmlFor="appointment_date">

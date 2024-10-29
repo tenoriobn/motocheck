@@ -1,10 +1,12 @@
 import { ModalForm } from "src/common/styles/modalsStyles";
-import { useListModels } from "src/hooks/cadastrarVeiculo/useListModels";
-import useRegisterVehicle from "src/hooks/cadastrarVeiculo/useRegisterVehicle";
+import { useSearchModelo } from "src/hooks/cadastrarModelo/useSearchModelo";
+import useCreateVehicle from "src/hooks/cadastrarVeiculo/useCreateVehicle";
+import { useSearchStatus } from "src/hooks/cadastrarVeiculo/useSearchStatus";
 
 export default function ModalNew() {
-  const { userInfo, setUserInfo, handleCreate } = useRegisterVehicle();
-  const { models } = useListModels();
+  const { userInfo, setUserInfo, handleCreate } = useCreateVehicle();
+  const { modelos } = useSearchModelo();
+  const { status } = useSearchStatus();
 
   return (
     <ModalForm id="frmAddPack" onSubmit={handleCreate}>
@@ -67,8 +69,8 @@ export default function ModalNew() {
         >
           <option value="">Selecione</option>
 
-          {models && models.length > 0 &&  // Corrigido para verificar se `models` tem itens
-            models.map((info) => (
+          {modelos && modelos.length > 0 &&
+            modelos.map((info) => (
               <option key={info.idModelo} value={info.idModelo}>
                 {info.modelo}
               </option>
@@ -87,9 +89,14 @@ export default function ModalNew() {
           required
         >
           <option value="">Selecione</option>
-          <option value="2">Manutenção</option>
-          <option value="3">Em rota</option>
-          <option value="4">Disponível</option>
+
+          {status && status.length > 0 &&
+            status.map((info) => (
+              <option key={info.idVeiculoStatus} value={info.idVeiculoStatus}>
+                {info.statusVeiculo}
+              </option>
+            ))
+          }
         </select>
       </label>
 

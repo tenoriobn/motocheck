@@ -4,7 +4,7 @@ import { usePutApi } from "../api/usePutApi";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
-const useEditUser = () => {
+const useUpdatePerson = () => {
   const modalInfo = useRecoilValue(stateModalInfo);
   const setOpenModal = useSetRecoilState(stateOpenModal);
   const { putData } = usePutApi(true);
@@ -17,8 +17,6 @@ const useEditUser = () => {
   const handleEdit = async (event) => {
     event.preventDefault();
     
-    console.log('userInfo: ', userInfo);
-
     try {
       await putData('/pessoas/update', userInfo);
       toast.success('Atualizado com sucesso!');
@@ -32,4 +30,4 @@ const useEditUser = () => {
   return { userInfo, setUserInfo, handleEdit };
 };
 
-export default useEditUser;
+export default useUpdatePerson;

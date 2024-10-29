@@ -46,6 +46,12 @@ export const stateVehicleInfoTable = atom({
   default: []
 });
 
+// Estados para cadastrar veiculo
+export const stateModelInfoTable = atom({
+  key: 'stateModelInfoTable',
+  default: []
+});
+
 
 // Estados envolvendo modal
 export const stateOpenModal = atom({
@@ -55,5 +61,12 @@ export const stateOpenModal = atom({
 
 export const stateModalInfo = atom({
   key: 'stateModalInfo',
+  default: null
+});
+
+
+// Estados dos Cargos
+export const stateCargos = atom({
+  key: 'stateCargos',
   default: null
 });

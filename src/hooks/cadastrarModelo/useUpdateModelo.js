@@ -4,7 +4,7 @@ import { usePutApi } from "../api/usePutApi";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
-const useEditVehicle = () => {
+const useUpdateModelo = () => {
   const modalInfo = useRecoilValue(stateModalInfo);
   const setOpenModal = useSetRecoilState(stateOpenModal);
   const { putData } = usePutApi(true);
@@ -18,7 +18,7 @@ const useEditVehicle = () => {
     event.preventDefault();
 
     try {
-      await putData('/veiculos/atualizar', userInfo);
+      await putData('/veiculos/update/tbmodelo', userInfo);
       toast.success('Atualizado com sucesso!');
       setOpenModal(false);
     } catch (error) {
@@ -30,4 +30,4 @@ const useEditVehicle = () => {
   return { userInfo, setUserInfo, handleEdit };
 };
 
-export default useEditVehicle;
+export default useUpdateModelo;

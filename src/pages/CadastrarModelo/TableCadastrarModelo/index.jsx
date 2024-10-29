@@ -1,73 +1,37 @@
-import { useRecoilValue, useResetRecoilState, useSetRecoilState } from "recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import { Table } from "src/common/styles/tableStyle";
-import { stateCorrectiveMaintenanceInfoTable } from "src/store/atom.js";
-import { formatDateToBRL } from "src/hooks/formatters/formatDateToBRL";
-import { stateOpenModal, stateModalInfo } from "src/store/atom";
-import { useEffect } from "react";
+import { stateModalInfo, stateModelInfoTable, stateOpenModal } from "src/store/atom.js";
 
 export default function TableCadastrarModelo() {
-  const allCorrectiveMaintenances = useRecoilValue(stateCorrectiveMaintenanceInfoTable);
+  const modelInfoTable = useRecoilValue(stateModelInfoTable);
   const setOpenModal = useSetRecoilState(stateOpenModal);
   const setModalInfo = useSetRecoilState(stateModalInfo);
-  const resetState = useResetRecoilState(stateCorrectiveMaintenanceInfoTable);
-
-  useEffect(() => {
-    return () => {
-      resetState()
-    };
-  }, []);
 
   return (
     <>
-      {allCorrectiveMaintenances.length > 0 &&
+      {modelInfoTable.length > 0 &&
         <Table>
           <thead>
             <tr>
               <th>#</th>
-              {/* <th>ID</th> */}
-              {/* <th>Descrição</th> */}
+              <th>ID Modelo</th>
               <th>Modelo</th>
-              <th>Placa</th>
-              <th>Agendamento</th>
-              <th>Status</th>
               <th>Ações</th>
             </tr>
           </thead>
           <tbody>
+            {modelInfoTable.map((info, index) => (
+              <tr key={info.idModelo}>
+                <td>{index + 1}</td>
+                <td>{info.idModelo}</td>
+                <td>{info.modelo}</td>
 
-            {allCorrectiveMaintenances.map((maintenance) => (
-              <tr key={maintenance.id}>
-                <td>{maintenance.id}</td>
-                {/* <td>{maintenance.idVeiculo}</td> */}
-                {/* <td>{maintenance.descricaoManutencao}</td> */}
-                <td>{maintenance.modelo}</td>
-                <td>{maintenance.placa}</td>
-                <td>{formatDateToBRL(maintenance.dataManutencao)}</td>
-                <td>
-                  <span 
-                    className={`status status__${maintenance.statusVeiculo === "Manutenção" 
-                      ? "maintenance" : maintenance.statusVeiculo === "Disponivel"? "inactive" : "active"
-                    }`}
-                  >
-                    {maintenance.statusVeiculo}
-                  </span>
-                </td>
                 <td>
                   <div className="button__container">
                     <button 
                       onClick={() => {
-                        setOpenModal('view')
-                        setModalInfo(maintenance)
-                      }}
-                      className="button button__view"
-                    >
-                      <i className="fas fa-eye"></i> Ver
-                    </button>
-
-                    <button 
-                      onClick={() => {
                         setOpenModal('edit')
-                        setModalInfo(maintenance)
+                        setModalInfo(info)
                       }}
                       className="button button__edit"
                     >

@@ -4,7 +4,7 @@ import { useSetRecoilState } from "recoil";
 import { usePostApi } from "src/hooks/api/usePostApi";
 import { stateOpenModal } from "src/store/atom";
 
-function useRegisterVehicle() {
+function useCreateModelo() {
   const [userInfo, setUserInfo] = useState('');
   const setOpenModal = useSetRecoilState(stateOpenModal);
   const { postData } = usePostApi(true);
@@ -13,18 +13,14 @@ function useRegisterVehicle() {
     e.preventDefault();
 
     try {
-      await postData('/veiculos/cadastrar', userInfo);
+      await postData('/veiculos/inserir/modelo', userInfo);
       toast.success('Cadastrado com sucesso!');
 
       setOpenModal(false)
 
     } catch (error) {
-      if (error.message === 'Veículo não encontrado!') {
-        toast.error(error.message);
-      } else {
-        console.error("Erro ao enviar dados:", error);
-        toast.error('Erro ao enviar dados');
-      }
+      console.error("Erro ao enviar dados:", error);
+      toast.error('Erro ao enviar dados');
     }
   };
 
@@ -35,4 +31,4 @@ function useRegisterVehicle() {
   };
 }
 
-export default useRegisterVehicle;
+export default useCreateModelo;

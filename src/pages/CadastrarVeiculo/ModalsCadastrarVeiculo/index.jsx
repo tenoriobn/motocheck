@@ -10,15 +10,15 @@ export default function ModalsCadastrarVeiculo() {
 
   return (
     <>
-      <Modal title="Nova Manutenção" openModal={openModal === 'new'}>
+      <Modal title="Novo Veículo" openModal={openModal === 'new'}>
         <ModalNew />
       </Modal>
 
-      <Modal title="Detalhes da Manutenção" maxWidth={{ maxWidth: '460px' }} openModal={openModal === 'view'}>
+      <Modal title="Detalhes do Veículo" maxWidth={{ maxWidth: '460px' }} openModal={openModal === 'view'}>
         <ModalView />
       </Modal>
 
-      <Modal title="Editar Manutenção" openModal={openModal === 'edit'}>
+      <Modal title="Editar Veículo" openModal={openModal === 'edit'}>
         <ModalEdit />
       </Modal>
     </>

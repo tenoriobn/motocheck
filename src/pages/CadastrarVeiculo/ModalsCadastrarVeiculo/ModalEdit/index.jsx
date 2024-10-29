@@ -1,8 +1,8 @@
 import { ModalForm } from "src/common/styles/modalsStyles";
-import useEditVehicle from "src/hooks/cadastrarVeiculo/useEditVehicle";
+import { useUpdateVehicle } from "src/hooks/cadastrarVeiculo/useUpdateVehicle";
 
 export default function ModalEdit() {
-  const { userInfo, setUserInfo, handleEdit } = useEditVehicle();
+  const { userInfo, setUserInfo, handleEdit } = useUpdateVehicle();
   
   return (
     <ModalForm id="frmAddPack" onSubmit={handleEdit}>

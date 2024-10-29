@@ -3,7 +3,7 @@ import { useSetRecoilState } from "recoil";
 import { useFetchApi } from "../api/useFetchApi";
 import { stateVehicleInfoTable } from "src/store/atom.js";
 
-export const useSearchFilterVeiculo = () => {
+export const useSearchVeiculo = () => {
   const [filtro, setFiltro] = useState({});
   const { data, error, loading, fetchData } = useFetchApi();
   const setVehicleInfoTable = useSetRecoilState(stateVehicleInfoTable);
@@ -11,7 +11,7 @@ export const useSearchFilterVeiculo = () => {
   const handleSearch = async (e) => {
     e.preventDefault();
     
-    const searchOptions = filtro.searchOption === "plate" ? "placa" : "modelo";
+    const searchOptions = filtro.searchOption === "model" ? "modelo" : "placaveiculo";
     const endpoint = `/veiculos/search/${searchOptions}/${filtro.vehicleIdentifier}`;
 
     try {

@@ -1,35 +1,29 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
 import { useSetRecoilState } from "recoil";
-import { useFetchApi } from "src/hooks/api/useFetchApi";
 import { usePostApi } from "src/hooks/api/usePostApi";
 import { stateOpenModal } from "src/store/atom";
+import useFetchVehicle from "../useFetchVehicle";
 
-function useRegisterManutencaoCadastrada() {
+function useCreateManutencaoProgramada() {
   const [vehiclePlate, setVehiclePlate] = useState('');
   const [newMaintenanceInfo, setNewMaintenanceInfo] = useState({});
   const setOpenModal = useSetRecoilState(stateOpenModal);
-  const { fetchData } = useFetchApi();
   const { postData } = usePostApi(true);
+  const { fetchVehicleIdByPlate } = useFetchVehicle();
 
   const handleCreate = async (e) => {
     e.preventDefault();
 
     try {
-      const vehicleSearchResponse = await fetchData(`/veiculos/search/placaveiculo/${vehiclePlate}`);
-
-      const idVeiculo = vehicleSearchResponse?.[0]?.idVeiculo;
-      if (!vehicleSearchResponse?.length || !idVeiculo) throw new Error('Veículo não encontrado!');
-
+      const idVeiculo = await fetchVehicleIdByPlate(vehiclePlate);
       await postData('/manutencao/programada/cadastrar', { ...newMaintenanceInfo, idVeiculo });
       toast.success('Cadastrado com sucesso!');
 
       setOpenModal(false)
 
     } catch (error) {
-      if (error.message === 'Veículo não encontrado!') {
-        toast.error(error.message);
-      } else {
+      if (error.message !== 'Veículo não encontrado!') {
         console.error("Erro ao enviar dados:", error);
         toast.error('Erro ao enviar dados');
       }
@@ -45,4 +39,4 @@ function useRegisterManutencaoCadastrada() {
   };
 }
 
-export default useRegisterManutencaoCadastrada;
+export default useCreateManutencaoProgramada;

@@ -4,9 +4,9 @@ import { stateOpenModal } from "src/store/atom";
 import { LinkItem, Main } from "src/common/styles/componentStyles";
 import Header from "src/components/Header";
 import Title from "src/components/Title";
-import SearchFilterGerenciarUsuario from "./SearchFilterGerenciarUsuario";
-import TableGerenciarUsuario from "./TableGerenciarUsuario";
 import ModalsGerenciarUsuario from "./ModalsGerenciarUsuario";
+import SearchFilterGerenciarPessoa from "../GerenciarPessoa/SearchFilterGerenciarPessoa";
+import TableGerenciarPessoa from "../GerenciarPessoa/TableGerenciarPessoa";
 
 export default function GerenciarUsuario() {
   const setOpenModal = useSetRecoilState(stateOpenModal);
@@ -26,8 +26,8 @@ export default function GerenciarUsuario() {
 
       <Main>
         <Title title="Filtros de Busca" />
-        <SearchFilterGerenciarUsuario />
-        <TableGerenciarUsuario />
+        <SearchFilterGerenciarPessoa />
+        <TableGerenciarPessoa />
       </Main>
 
       <ModalsGerenciarUsuario />

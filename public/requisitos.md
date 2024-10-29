@@ -1,9 +1,8 @@
-Gerenciar Usuário - já está criando usuário, com possibilidade de editar e visualizar, entretanto, esses dois não tem como testar, pois está retornando apenas o ID;
-Gerenciar Manutenção Programada - falta conseguir atualizar as informações;
+*** Gerenciar Usuário - já está criando usuário, com possibilidade de editar e visualizar, entretanto, esses dois não tem como testar, pois está retornando apenas o ID;
+*** Gerenciar Manutenção Programada - falta conseguir atualizar as informações;
 Gerenciar Manutenção Corretiva - falta ajustar os endpoints;
-Cadastrar Modelo - ainda não foi feito.
+*** Cadastrar Modelo - ainda não foi feito.
 
-ADICIONAR API DE RASTREIO DE IP MOSTRANDO NA PÁGINA HOME (REPOSITÓRIO DE APIS TEM OUTRAS APIS)
 ADICIONAR TESTES EM ALGUM COMPONENTE COM CYPRESS ou 
 
 
@@ -17,3 +16,13 @@ OK - Adicionar dados do usuário no sidebar (Nome, identificador e documento);
 - Centralizar e padronizar `hover, focus e etc` utilizando `opacity` para facilitar manutenção;
 - Mudar icones de acordo com a página;
 - Correção das cores do sistema;
+
+
+********* REFATORAR o useFetchVehicle, substitui-lo pelo `useSearchVeiculo.js` que faz a mesma coisa *******
+*** Renomear pastas dos hooks para corresponder a modelo, veiculo, pessoa, usuario... ***
+
+
+
+// AO TENTAR EDITAR MODELO, ELE DUPLICA O MODELO.
+// Não está gerando tabela manutenção corretiva.
+

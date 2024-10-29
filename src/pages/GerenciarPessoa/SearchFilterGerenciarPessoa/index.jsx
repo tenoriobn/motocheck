@@ -1,8 +1,8 @@
-import { useSearchFilterGerenciarPessoa } from 'src/hooks/gerenciarPessoa/useSearchFilterGerenciarPessoa';
+import { useSearchPerson } from 'src/hooks/gerenciarPessoa/useSearchPerson';
 import { ButtonSearchForm, FilterInputContainer, FilterSelectContainer, Form, Label } from 'src/common/styles/formFilterStyles'
 
 export default function SearchFilterGerenciarPessoa() {
-  const { filtro, setFiltro, handleSearch } = useSearchFilterGerenciarPessoa();
+  const { filter, setFilter, handleSearch } = useSearchPerson();
 
   return (
     <Form onSubmit={handleSearch} method="POST">
@@ -13,8 +13,8 @@ export default function SearchFilterGerenciarPessoa() {
           id="identifier"
           name="identifier"
           placeholder="Digite o Nome ou CPF"
-          onChange={(e) => setFiltro({ ...filtro, identifier: e.target.value })} 
-          value={filtro.identifier || ''}
+          onChange={(e) => setFilter({ ...filter, identifier: e.target.value })} 
+          value={filter.identifier || ''}
           autoComplete="off"
           required
         />
@@ -25,8 +25,8 @@ export default function SearchFilterGerenciarPessoa() {
         <select
           id="searchOption"
           name="searchOption"
-          value={filtro.searchOption || ''}
-          onChange={(e) => setFiltro({ ...filtro, searchOption: e.target.value })} 
+          value={filter.searchOption || ''}
+          onChange={(e) => setFilter({ ...filter, searchOption: e.target.value })} 
           required
         >
           <option value="">Selecione</option>

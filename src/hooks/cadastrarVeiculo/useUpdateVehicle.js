@@ -4,29 +4,21 @@ import { usePutApi } from "../api/usePutApi";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
-const useEditPersons = () => {
+export const useUpdateVehicle = () => {
   const modalInfo = useRecoilValue(stateModalInfo);
   const setOpenModal = useSetRecoilState(stateOpenModal);
   const { putData } = usePutApi(true);
   const [userInfo, setUserInfo] = useState({});
 
   useEffect(() => {
-    setUserInfo({
-      nome: modalInfo.nome,
-      rg: modalInfo.rg,
-      cpf: modalInfo.cpf,
-      idCargo: modalInfo.idCargo,
-      idPessoa: modalInfo.idPessoa
-    });
+    setUserInfo(modalInfo);
   }, [modalInfo]);
 
   const handleEdit = async (event) => {
     event.preventDefault();
-    
-    console.log('userInfo: ', userInfo);
 
     try {
-      await putData('/pessoas/update', userInfo);
+      await putData('/veiculos/atualizar', userInfo);
       toast.success('Atualizado com sucesso!');
       setOpenModal(false);
     } catch (error) {
@@ -37,5 +29,3 @@ const useEditPersons = () => {
 
   return { userInfo, setUserInfo, handleEdit };
 };
-
-export default useEditPersons;

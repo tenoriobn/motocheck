@@ -1,8 +1,8 @@
-import { useSearchFilterManutencaoProgramada } from 'src/hooks/manutencaoProgramada/useSearchFilterManutencaoProgramada';
+import { useSearchManutencaoProgramada } from 'src/hooks/manutencaoProgramada/useSearchManutencaoProgramada';
 import { ButtonSearchForm, FilterInputContainer, FilterSelectContainer, Form, Label } from 'src/common/styles/formFilterStyles'
 
 export default function SearchFilterManutencaoProgramada() {
-  const { filtro, setFiltro, handleSearch } = useSearchFilterManutencaoProgramada();
+  const { filtro, setFiltro, handleSearch } = useSearchManutencaoProgramada();
 
   return (
     <Form onSubmit={handleSearch} method="POST">

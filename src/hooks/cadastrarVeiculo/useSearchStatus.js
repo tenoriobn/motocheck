@@ -2,14 +2,14 @@
 import { useEffect, useState } from "react";
 import { useFetchApi } from "../api/useFetchApi";
 
-export const useListModels = () => {
+export const useSearchStatus = () => {
   const { fetchData } = useFetchApi();
-  const [models, setModels] = useState();
+  const [status, setStatus] = useState(null);
 
   const handleSearch = async () => {
     try {
-      const response = await fetchData('/veiculos/modelos/listar');
-      setModels(response);
+      const response = await fetchData('/veiculos/status/listar');
+      setStatus(response);
     } catch (error) {
       console.error("Erro ao buscar dados:", error);
     }
@@ -20,6 +20,6 @@ export const useListModels = () => {
   }, []);
 
   return {
-    models
+    status
   };
 };

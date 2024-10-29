@@ -1,12 +1,12 @@
 import { ModalForm } from "src/common/styles/modalsStyles";
-import useRegisterUser from "src/hooks/gerenciarUsuario/useRegisterUser";
+import useCreateUser from "src/hooks/gerenciarUsuario/useCreateUser";
 
 export default function ModalNew() {
   const {
     userInfo, 
     setUserInfo,
     handleCreate,
-  } = useRegisterUser();
+  } = useCreateUser();
 
   return (
     <ModalForm id="frmAddPack" onSubmit={handleCreate}>

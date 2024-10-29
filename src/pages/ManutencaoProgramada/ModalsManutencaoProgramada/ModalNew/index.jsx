@@ -1,5 +1,5 @@
 import { ModalForm } from "src/common/styles/modalsStyles";
-import useRegisterManutencaoProgramada from "src/hooks/manutencaoProgramada/useRegisterManutencaoProgramada";
+import useCreateManutencaoProgramada from "src/hooks/manutencaoProgramada/useCreateManutencaoProgramada";
 
 export default function ModalNew() {
   const {
@@ -8,7 +8,7 @@ export default function ModalNew() {
     newMaintenanceInfo,
     setNewMaintenanceInfo,
     handleCreate,
-  } = useRegisterManutencaoProgramada();
+  } = useCreateManutencaoProgramada();
 
   return (
     <ModalForm id="frmAddPack" onSubmit={handleCreate}>

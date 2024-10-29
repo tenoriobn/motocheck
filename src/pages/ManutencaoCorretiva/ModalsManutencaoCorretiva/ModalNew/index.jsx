@@ -1,5 +1,5 @@
 import { ModalForm } from "src/common/styles/modalsStyles";
-import useRegisterManutencaoCadastrada from "src/hooks/manutencaoCorretiva/useRegisterManutencaoCadastrada";
+import useCreateManutencaoCorretiva from "src/hooks/manutencaoCorretiva/useCreateManutencaoCorretiva";
 
 export default function ModalNew() {
   const {
@@ -8,10 +8,34 @@ export default function ModalNew() {
     newMaintenanceInfo,
     setNewMaintenanceInfo,
     handleCreate,
-  } = useRegisterManutencaoCadastrada();
+  } = useCreateManutencaoCorretiva();
 
   return (
     <ModalForm id="frmAddPack" onSubmit={handleCreate}>
+      <label htmlFor="vehicle_plate">
+        ID Usuário
+        <input
+          type="text"
+          id="vehicle_plate"
+          placeholder="Ex: 19"
+          value={newMaintenanceInfo.idUsuario || ''}
+          onChange={(e) => setNewMaintenanceInfo({ ...newMaintenanceInfo, idUsuario: e.target.value})}
+          required
+        />
+      </label>
+
+      <label htmlFor="vehicle_plate">
+        ID Mecânico
+        <input
+          type="text"
+          id="vehicle_plate"
+          placeholder="Ex: 8"
+          value={newMaintenanceInfo.idMecanico  || ''}
+          onChange={(e) => setNewMaintenanceInfo({ ...newMaintenanceInfo, idMecanico: e.target.value})}
+          required
+        />
+      </label>
+
       <label htmlFor="vehicle_plate">
         Placa do Veículo
         <input
@@ -30,20 +54,8 @@ export default function ModalNew() {
           type="date"
           id="appointment_date"
           placeholder="Ex: 01/01/2024"
-          value={newMaintenanceInfo.dataManutencao || ''}
-          onChange={(e) => setNewMaintenanceInfo({ ...newMaintenanceInfo, dataManutencao: e.target.value})}
-          required
-        />
-      </label>
-
-      <label htmlFor="km_maintenance">
-        Km Manutenção
-        <input
-          type="number"
-          id="km_maintenance"
-          placeholder="Ex: 127659"
-          value={newMaintenanceInfo.kmManutencao || ''}
-          onChange={(e) => setNewMaintenanceInfo({ ...newMaintenanceInfo, kmManutencao: e.target.value})}
+          value={newMaintenanceInfo.dataFeitoManutencao || ''}
+          onChange={(e) => setNewMaintenanceInfo({ ...newMaintenanceInfo, dataFeitoManutencao: e.target.value})}
           required
         />
       </label>
