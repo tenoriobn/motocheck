@@ -1,5 +1,5 @@
 import { ModalForm } from "src/common/styles/modalsStyles";
-import useRegisterManutencaoCadastrada from "src/hooks/manutencaoCorretiva/useRegisterManutencaoCadastrada";
+import useRegisterManutencaoProgramada from "src/hooks/manutencaoProgramada/useRegisterManutencaoProgramada";
 
 export default function ModalNew() {
   const {
@@ -8,7 +8,7 @@ export default function ModalNew() {
     newMaintenanceInfo,
     setNewMaintenanceInfo,
     handleCreate,
-  } = useRegisterManutencaoCadastrada();
+  } = useRegisterManutencaoProgramada();
 
   return (
     <ModalForm id="frmAddPack" onSubmit={handleCreate}>
@@ -60,7 +60,7 @@ export default function ModalNew() {
         />
       </label>
 
-      <button type="submit">Editar</button>
+      <button type="submit">Cadastrar</button>
     </ModalForm>
   );
 }
