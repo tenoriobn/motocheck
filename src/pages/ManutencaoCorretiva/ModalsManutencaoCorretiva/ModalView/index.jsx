@@ -5,6 +5,8 @@ import { stateModalInfo } from "src/store/atom";
 export default function ModalView() {
   const modalInfo = useRecoilValue(stateModalInfo);
 
+  console.log(modalInfo)
+
   return (
     <ModalViewInfoContainer>
       <tbody>
@@ -25,10 +27,17 @@ export default function ModalView() {
           <td><p name="pedidoCustomer" id="pedidoCustomer">{modalInfo.modelo}</p></td>
         </tr>
         <tr>
-          <td className="maintenance__info-title">KM Manuntencao: </td>
-          <td><p name="pedidoCustomer" id="pedidoCustomer">{modalInfo.kmManutencao}</p></td>
+          <td className="maintenance__info-title">Mecânico: </td>
+          <td><p name="pedidoCustomer" id="pedidoCustomer">{modalInfo?.nomeMecanico}</p></td>
         </tr>
-
+        <tr>
+          <td className="maintenance__info-title">Tipo Manutenção: </td>
+          <td><p name="pedidoCustomer" id="pedidoCustomer">{modalInfo?.tipoManutencao}</p></td>
+        </tr>
+        <tr>
+          <td className="maintenance__info-title">Manut. Finalizada: </td>
+          <td><p name="pedidoCustomer" id="pedidoCustomer">{modalInfo?.dataFeitoManutencao}</p></td>
+        </tr>
         <tr>
           <td className="maintenance__info-title">Status:</td>
           <td>

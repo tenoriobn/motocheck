@@ -16,6 +16,7 @@ const Theme = {
     slateGray: '#7a7b86',
     jetBlack: '#1a191f',
     red: '#ee3225',
+    orange: '#ff8800',
     goldenYellow: '#f4b400',
     mediumBlue: '#4e73df',
     deepTeal: '#1f3349',

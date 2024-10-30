@@ -1,5 +1,5 @@
 import { useSearchManutencaoCorretiva } from 'src/hooks/manutencaoCorretiva/useSearchManutencaoCorretiva';
-import { ButtonSearchForm, FilterInputContainer, FilterSelectContainer, Form, Label } from 'src/styles/styledComponents/formFilterStyles'
+import { ButtonSearchForm, FilterInputContainer, Form, Label } from 'src/styles/styledComponents/formFilterStyles'
 
 export default function SearchFilterManutencaoCorretiva() {
   const { filtro, setFiltro, handleSearch } = useSearchManutencaoCorretiva();
@@ -19,22 +19,7 @@ export default function SearchFilterManutencaoCorretiva() {
           required
         />
       </FilterInputContainer>
-
-      <FilterSelectContainer>
-        <Label htmlFor="searchOption">Critério de busca:</Label>
-        <select
-          id="searchOption"
-          name="searchOption"
-          value={filtro.searchOption || ''}
-          onChange={(e) => setFiltro({ ...filtro, searchOption: e.target.value })} 
-          required
-        >
-          <option value="">Selecione</option>
-          <option value="plate">Placa</option>
-          <option value="model">Modelo</option>
-        </select>
-      </FilterSelectContainer>
-
+      
       <ButtonSearchForm type="submit" className="button-search">
         <i className="fas fa-search"></i> Filtrar
       </ButtonSearchForm>

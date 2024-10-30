@@ -82,6 +82,10 @@ export const Table = styled.table`
     background-color: ${({ theme }) => theme.colors.goldenYellow};
   }
 
+  .button__delete {
+    background-color: ${({ theme }) => theme.colors.orange};
+  }
+
   @media (max-width: 767px) {
     display: block;
     overflow-x: auto;

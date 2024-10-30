@@ -30,7 +30,7 @@ export default function TableManutencaoCorretiva() {
                 <td>{maintenance.id}</td>
                 <td>{maintenance.modelo}</td>
                 <td>{maintenance.placa}</td>
-                <td>{formatDateToBRL(maintenance.dataManutencao)}</td>
+                <td>{maintenance.dataManutencao && formatDateToBRL(maintenance.dataManutencao)}</td>
                 <td>
                   <span 
                     className={`status status__${maintenance.statusVeiculo === "Manutenção" 
@@ -57,9 +57,9 @@ export default function TableManutencaoCorretiva() {
                         setOpenModal('edit')
                         setModalInfo(maintenance)
                       }}
-                      className="button button__edit"
+                      className="button button__delete"
                     >
-                      <i className="fas fa-edit"></i> Editar
+                      Finalizar
                     </button>
                   </div>
                 </td>

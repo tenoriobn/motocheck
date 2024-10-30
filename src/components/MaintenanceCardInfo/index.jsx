@@ -4,32 +4,33 @@ import styled from "styled-components"
 const DashboardItens = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: .625rem;
   box-sizing: border-box;
   margin-top: 3.125rem;
 
   .dashboard-item {
+    box-sizing: border-box;
+    border-radius: .625rem;
+    cursor: pointer;
     position: relative;
     width: 100%;
     height: 100px;
-    border-radius: 10px;
-    cursor: pointer;
-    box-sizing: border-box;
+    border: .0625rem solid;
   }
 
   .dashboard-item.ticket-medio {
     background-color: #34a0a4;
-    border: 1px solid #34a0a4;
+    border-color: #34a0a4;
   }
 
   .dashboard-item.pending_request {
     background-color: #2e3b46;
-    border: 1px solid #2e3b46;
+    border-color: #2e3b46;
   }
 
   .dashboard-item.pending_entry {
     background-color: #1f3349;
-    border: 1px solid #1f3349;
+    border-color: #1f3349;
   }
 
   .dashboard-item-body {
@@ -60,8 +61,7 @@ const DashboardItens = styled.div`
   }
 
   @media (min-width: 992px) {
-    flex-wrap: inherit;
-    justify-content: space-between;
+    flex-wrap: nowrap;
   }
 `;
 

@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
-import { useSetRecoilState } from "recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import { usePostApi } from "src/hooks/api/usePostApi";
-import { stateOpenModal } from "src/store/atom";
+import { stateOpenModal, stateUserDate } from "src/store/atom";
 import useSearchIDVehicle from "../veiculos/useSearchIDVehicle";
 
 function useCreateManutencaoCorretiva() {
+  const userData = useRecoilValue(stateUserDate);
+  console.log(userData.idUsuario);
+
   const [vehiclePlate, setVehiclePlate] = useState('');
   const [newMaintenanceInfo, setNewMaintenanceInfo] = useState({});
   const setOpenModal = useSetRecoilState(stateOpenModal);
@@ -16,7 +19,12 @@ function useCreateManutencaoCorretiva() {
     e.preventDefault();
     try {
       const idVeiculo = await handleVehicleIdByPlate(vehiclePlate);
-      await postData('/manutencao/corretiva/cadastrar', { ...newMaintenanceInfo, idVeiculo });
+      
+      await postData('/manutencao/corretiva/cadastrar', { 
+        ...newMaintenanceInfo, 
+        idUsuario: userData.idUsuario,
+        idVeiculo,
+      });
       toast.success('Cadastrado com sucesso!');
 
       setOpenModal(false)

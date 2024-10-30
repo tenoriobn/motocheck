@@ -13,18 +13,6 @@ export default function ModalNew() {
   return (
     <ModalForm id="frmAddPack" onSubmit={handleCreate}>
       <label htmlFor="vehicle_plate">
-        ID Usuário
-        <input
-          type="text"
-          id="vehicle_plate"
-          placeholder="Ex: 19"
-          value={newMaintenanceInfo.idUsuario || ''}
-          onChange={(e) => setNewMaintenanceInfo({ ...newMaintenanceInfo, idUsuario: e.target.value})}
-          required
-        />
-      </label>
-
-      <label htmlFor="vehicle_plate">
         ID Mecânico
         <input
           type="text"
@@ -54,8 +42,8 @@ export default function ModalNew() {
           type="date"
           id="appointment_date"
           placeholder="Ex: 01/01/2024"
-          value={newMaintenanceInfo.dataFeitoManutencao || ''}
-          onChange={(e) => setNewMaintenanceInfo({ ...newMaintenanceInfo, dataFeitoManutencao: e.target.value})}
+          value={newMaintenanceInfo.dataManutencao || ''}
+          onChange={(e) => setNewMaintenanceInfo({ ...newMaintenanceInfo, dataManutencao: e.target.value})}
           required
         />
       </label>

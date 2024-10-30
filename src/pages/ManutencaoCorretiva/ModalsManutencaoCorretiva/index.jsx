@@ -1,9 +1,9 @@
 import Modal from "src/components/Modal";
 import ModalNew from "./ModalNew";
 import ModalView from "./ModalView";
-import ModalEdit from "./ModalEdit";
 import { useRecoilValue } from "recoil";
 import { stateOpenModal } from "../../../store/atom";
+import ModalEdit from "./ModalEdit";
 
 export default function ModalsManutencaoCorretiva() {
   const openModal = useRecoilValue(stateOpenModal);
@@ -18,7 +18,7 @@ export default function ModalsManutencaoCorretiva() {
         <ModalView />
       </Modal>
 
-      <Modal title="Editar Manutenção" openModal={openModal === 'edit'}>
+      <Modal title="Finalizar Manutenção" openModal={openModal === 'edit'}>
         <ModalEdit />
       </Modal>
     </>
