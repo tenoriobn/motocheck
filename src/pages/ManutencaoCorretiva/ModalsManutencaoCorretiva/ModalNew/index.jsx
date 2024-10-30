@@ -1,4 +1,4 @@
-import { ModalForm } from "src/common/styles/modalsStyles";
+import { ModalForm } from "src/styles/styledComponents/modalsStyles";
 import useCreateManutencaoCorretiva from "src/hooks/manutencaoCorretiva/useCreateManutencaoCorretiva";
 
 export default function ModalNew() {

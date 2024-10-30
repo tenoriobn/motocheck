@@ -1,5 +1,5 @@
 import { useRecoilValue } from "recoil";
-import { ModalViewInfoContainer } from "src/common/styles/modalsStyles";
+import { ModalViewInfoContainer } from "src/styles/styledComponents/modalsStyles";
 import { stateModalInfo } from "src/store/atom";
 
 export default function ModalView() {

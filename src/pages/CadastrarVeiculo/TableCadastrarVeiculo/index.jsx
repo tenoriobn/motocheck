@@ -1,7 +1,7 @@
 import { useRecoilValue, useSetRecoilState } from "recoil";
-import { Table } from "src/common/styles/tableStyle";
+import { Table } from "src/styles/styledComponents/tableStyle";
 import { stateVehicleInfoTable } from "src/store/atom.js";
-import { formatDateToBRL } from "src/hooks/formatters/formatDateToBRL";
+import { formatDateToBRL } from "src/utils/formatDateToBRL";
 import { stateOpenModal, stateModalInfo } from "src/store/atom";
 
 export default function TableCadastrarVeiculo() {

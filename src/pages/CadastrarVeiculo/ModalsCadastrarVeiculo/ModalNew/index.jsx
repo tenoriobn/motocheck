@@ -1,7 +1,7 @@
-import { ModalForm } from "src/common/styles/modalsStyles";
-import { useSearchModelo } from "src/hooks/cadastrarModelo/useSearchModelo";
-import useCreateVehicle from "src/hooks/cadastrarVeiculo/useCreateVehicle";
-import { useSearchStatus } from "src/hooks/cadastrarVeiculo/useSearchStatus";
+import { ModalForm } from "src/styles/styledComponents/modalsStyles";
+import { useSearchModelo } from "src/hooks/modelo/useSearchModelo";
+import useCreateVehicle from "src/hooks/veiculos/useCreateVehicle";
+import { useSearchStatus } from "src/hooks/veiculos/useSearchStatus";
 
 export default function ModalNew() {
   const { userInfo, setUserInfo, handleCreate } = useCreateVehicle();

@@ -1,10 +1,10 @@
 import { useFetchApi } from "src/hooks/api/useFetchApi";
 import { toast } from "react-toastify";
 
-function useFetchVehicle() {
+function useSearchIDVehicle() {
   const { fetchData } = useFetchApi();
 
-  const fetchVehicleIdByPlate = async (vehiclePlate) => {
+  const handleVehicleIdByPlate = async (vehiclePlate) => {
     try {
       const response = await fetchData(`/veiculos/search/placaveiculo/${vehiclePlate}`);
       const idVeiculo = response?.[0]?.idVeiculo;
@@ -24,7 +24,7 @@ function useFetchVehicle() {
     }
   };
 
-  return { fetchVehicleIdByPlate };
+  return { handleVehicleIdByPlate };
 }
 
-export default useFetchVehicle;
+export default useSearchIDVehicle;

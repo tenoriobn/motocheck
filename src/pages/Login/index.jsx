@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useLogin } from 'src/hooks/login/useLogin';
-import { Transition } from "src/common/styles/transitionsStyles";
+import { Transition } from "src/styles/styledComponents/transitionsStyles";
 
 const LoginContainer = styled.section`
   display: flex;

@@ -1,6 +1,6 @@
-import { ModalForm } from "src/common/styles/modalsStyles";
-import useCreatePerson from "src/hooks/gerenciarPessoa/useCreatePerson";
-import { useSearchCargo } from "src/hooks/gerenciarPessoa/useSearchCargo";
+import { ModalForm } from "src/styles/styledComponents/modalsStyles";
+import useCreatePerson from "src/hooks/pessoa/useCreatePerson";
+import { useSearchCargo } from "src/hooks/pessoa/useSearchCargo";
 
 export default function ModalNew() {
   const { userInfo, setUserInfo, handleCreate } = useCreatePerson();

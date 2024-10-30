@@ -1,5 +1,5 @@
 import { useRecoilValue, useSetRecoilState } from "recoil";
-import { Table } from "src/common/styles/tableStyle";
+import { Table } from "src/styles/styledComponents/tableStyle";
 import { stateUsersTableInfo } from "src/store/atom.js";
 import { stateOpenModal, stateModalInfo } from "src/store/atom";
 

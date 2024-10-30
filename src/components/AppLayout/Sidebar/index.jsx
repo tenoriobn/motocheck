@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { stateMenuActive, stateUserDate } from "src/store/atom.js";
 import links from "./links.json";
-import { Transition } from "src/common/styles/transitionsStyles";
+import { Transition } from "src/styles/styledComponents/transitionsStyles";
 import { removeCookieData } from "src/services/cookieService";
 
 const ContainerSidebar = styled.div`

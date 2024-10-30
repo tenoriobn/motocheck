@@ -1,5 +1,5 @@
-import { useSearchPerson } from 'src/hooks/gerenciarPessoa/useSearchPerson';
-import { ButtonSearchForm, FilterInputContainer, FilterSelectContainer, Form, Label } from 'src/common/styles/formFilterStyles'
+import { useSearchPerson } from 'src/hooks/pessoa/useSearchPerson';
+import { ButtonSearchForm, FilterInputContainer, FilterSelectContainer, Form, Label } from 'src/styles/styledComponents/formFilterStyles'
 
 export default function SearchFilterGerenciarPessoa() {
   const { filter, setFilter, handleSearch } = useSearchPerson();

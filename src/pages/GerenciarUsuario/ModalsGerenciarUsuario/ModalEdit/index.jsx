@@ -1,5 +1,5 @@
-import { ModalForm } from "src/common/styles/modalsStyles";
-import useUpdateUser from "src/hooks/gerenciarUsuario/useUpdateUser";
+import { ModalForm } from "src/styles/styledComponents/modalsStyles";
+import useUpdateUser from "src/hooks/usuario/useUpdateUser";
 
 export default function ModalEdit() {
   const { userInfo, setUserInfo, handleEdit } = useUpdateUser();

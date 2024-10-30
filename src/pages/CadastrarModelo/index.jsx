@@ -1,12 +1,12 @@
 import { useSetRecoilState } from "recoil";
 import { ToastContainer } from "react-toastify";
 import { stateOpenModal } from "src/store/atom";
-import { LinkItem, Main } from "src/common/styles/componentStyles";
+import { LinkItem, Main } from "src/styles/styledComponents/componentStyles";
 import Header from "src/components/Header";
 import Title from "src/components/Title";
 import TableCadastrarModelo from "./TableCadastrarModelo";
 import ModalsCadastrarModelo from "./ModalsCadastrarModelo";
-import { useSearchModelo } from "src/hooks/cadastrarModelo/useSearchModelo";
+import { useSearchModelo } from "src/hooks/modelo/useSearchModelo";
 
 export default function CadastrarModelo() {
   const setOpenModal = useSetRecoilState(stateOpenModal);

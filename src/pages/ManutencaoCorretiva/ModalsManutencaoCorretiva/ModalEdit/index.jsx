@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useRecoilValue } from "recoil";
-import { ModalForm } from "src/common/styles/modalsStyles";
+import { ModalForm } from "src/styles/styledComponents/modalsStyles";
 import { stateModalInfo } from "src/store/atom";
 import { usePutApi } from "src/hooks/api/usePutApi";
 

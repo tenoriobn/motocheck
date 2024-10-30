@@ -1,57 +1,58 @@
 import { atom } from "recoil";
 
+// Estado para receber as informações de login
 export const stateUserLogin = atom({
   key: 'stateUserLogin',
   default: null
 });
 
+// Estado para guardar os dados/token do usuário
 export const stateUserDate = atom({
   key: 'stateUserDate',
   default: {}
 });
 
-// Ativa e desativa Menu Mobile
+// Estado para controlar Menu Mobile
 export const stateMenuActive = atom({
   key: 'stateMenuActive',
   default: false,
 });
 
-// Estados relativos a Gerenciar pessoas
+// Estado para tabela de Pessoas
 export const statePersonsTableInfo = atom({
   key: 'statePersonsTableInfo',
   default: []
 });
 
-// Estados relativos a Gerenciar Usuarios
+// Estado para tabela de Usuários
 export const stateUsersTableInfo = atom({
   key: 'stateUsersTableInfo',
   default: []
 });
 
-// Estados para manutenções corretivas
+// Estado para tabela de Manutenção Corretiva
 export const stateCorrectiveMaintenanceInfoTable = atom({
   key: 'stateAllCorrectiveMaintenances',
   default: []
 });
 
-// Estados para manutenções programadas
+// Estado para tabela de Manutenção Porgramada
 export const stateScheduledMaintenanceInfoTable = atom({
   key: 'stateAllScheduledMaintenances',
   default: []
 });
 
-// Estados para cadastrar veiculo
+// Estado para Tabela de Veículos
 export const stateVehicleInfoTable = atom({
   key: 'stateVehicleInfoTable',
   default: []
 });
 
-// Estados para cadastrar veiculo
+// Estado para Tabela de Modelos
 export const stateModelInfoTable = atom({
   key: 'stateModelInfoTable',
   default: []
 });
-
 
 // Estados envolvendo modal
 export const stateOpenModal = atom({
@@ -61,12 +62,5 @@ export const stateOpenModal = atom({
 
 export const stateModalInfo = atom({
   key: 'stateModalInfo',
-  default: null
-});
-
-
-// Estados dos Cargos
-export const stateCargos = atom({
-  key: 'stateCargos',
   default: null
 });

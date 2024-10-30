@@ -1,5 +1,5 @@
 import { useSearchManutencaoCorretiva } from 'src/hooks/manutencaoCorretiva/useSearchManutencaoCorretiva';
-import { ButtonSearchForm, FilterInputContainer, FilterSelectContainer, Form, Label } from 'src/common/styles/formFilterStyles'
+import { ButtonSearchForm, FilterInputContainer, FilterSelectContainer, Form, Label } from 'src/styles/styledComponents/formFilterStyles'
 
 export default function SearchFilterCadastrarModelo() {
   const { filtro, setFiltro, handleSearch } = useSearchManutencaoCorretiva();

@@ -1,6 +1,6 @@
-import { ModalForm } from "src/common/styles/modalsStyles";
-import { useSearchCargo } from "src/hooks/gerenciarPessoa/useSearchCargo";
-import useUpdatePerson from "src/hooks/gerenciarPessoa/useUpdatePerson";
+import { ModalForm } from "src/styles/styledComponents/modalsStyles";
+import { useSearchCargo } from "src/hooks/pessoa/useSearchCargo";
+import useUpdatePerson from "src/hooks/pessoa/useUpdatePerson";
 
 export default function ModalEdit() {
   const { userInfo, setUserInfo, handleEdit } = useUpdatePerson();

@@ -2,8 +2,8 @@ import { useRef } from "react";
 import { useSetRecoilState } from "recoil";
 import styled from "styled-components"
 import { stateOpenModal } from "src/store/atom";
-import useOutsideClick from "src/hooks/Modals/useOutsideClick";
-import { Transition } from "src/common/styles/transitionsStyles";
+import useOutsideClick from "src/hooks/modal/useOutsideClick";
+import { Transition } from "src/styles/styledComponents/transitionsStyles";
 
 const ModalContainer = styled.div`
   display: flex;

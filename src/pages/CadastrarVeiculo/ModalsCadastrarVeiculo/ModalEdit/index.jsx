@@ -1,5 +1,5 @@
-import { ModalForm } from "src/common/styles/modalsStyles";
-import { useUpdateVehicle } from "src/hooks/cadastrarVeiculo/useUpdateVehicle";
+import { ModalForm } from "src/styles/styledComponents/modalsStyles";
+import { useUpdateVehicle } from "src/hooks/veiculos/useUpdateVehicle";
 
 export default function ModalEdit() {
   const { userInfo, setUserInfo, handleEdit } = useUpdateVehicle();

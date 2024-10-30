@@ -1,5 +1,5 @@
-import { ModalForm } from "src/common/styles/modalsStyles";
-import useCreateUser from "src/hooks/gerenciarUsuario/useCreateUser";
+import { ModalForm } from "src/styles/styledComponents/modalsStyles";
+import useCreateUser from "src/hooks/usuario/useCreateUser";
 
 export default function ModalNew() {
   const {

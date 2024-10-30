@@ -1,5 +1,5 @@
-import { useSearchVeiculo } from 'src/hooks/cadastrarVeiculo/useSearchVeiculo';
-import { ButtonSearchForm, FilterInputContainer, FilterSelectContainer, Form, Label } from 'src/common/styles/formFilterStyles'
+import { useSearchVeiculo } from 'src/hooks/veiculos/useSearchVeiculo';
+import { ButtonSearchForm, FilterInputContainer, FilterSelectContainer, Form, Label } from 'src/styles/styledComponents/formFilterStyles'
 
 export default function SearchFilterCadastrarVeiculo() {
   const { filtro, setFiltro, handleSearch } = useSearchVeiculo();

@@ -1,5 +1,5 @@
-import { useSearchFilterGerenciarUsuario } from 'src/hooks/gerenciarUsuario/useSearchFilterGerenciarUsuario';
-import { ButtonSearchForm, FilterInputContainer,  Form, Label } from 'src/common/styles/formFilterStyles'
+import { useSearchFilterGerenciarUsuario } from 'src/hooks/usuario/useSearchFilterGerenciarUsuario';
+import { ButtonSearchForm, FilterInputContainer,  Form, Label } from 'src/styles/styledComponents/formFilterStyles'
 
 export default function SearchFilterGerenciarUsuario() {
   const { userId, setUserId, handleSearch } = useSearchFilterGerenciarUsuario();

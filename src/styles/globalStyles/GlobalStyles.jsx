@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import { Transition } from "../styles/transitionsStyles";
+import { Transition } from "../styledComponents/transitionsStyles";
 
 const GlobalStyles = createGlobalStyle`
   body {

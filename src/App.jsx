@@ -1,6 +1,6 @@
 import { ThemeProvider } from "styled-components";
-import Theme from "./common/theme/Theme";
-import GlobalStyles from "./common/globalStyles/GlobalStyles";
+import Theme from "./styles/theme/Theme";
+import GlobalStyles from "./styles/globalStyles/GlobalStyles";
 import RoutesComponent from "./routes";
 
 function App() {

@@ -18,11 +18,6 @@ OK - Adicionar dados do usuário no sidebar (Nome, identificador e documento);
 - Correção das cores do sistema;
 
 
-********* REFATORAR o useFetchVehicle, substitui-lo pelo `useSearchVeiculo.js` que faz a mesma coisa *******
-*** Renomear pastas dos hooks para corresponder a modelo, veiculo, pessoa, usuario... ***
-
-
-
 // AO TENTAR EDITAR MODELO, ELE DUPLICA O MODELO.
 // Não está gerando tabela manutenção corretiva.
 

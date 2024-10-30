@@ -1,5 +1,5 @@
-import { ModalForm } from "src/common/styles/modalsStyles";
-import useUpdateModelo from "src/hooks/cadastrarModelo/useUpdateModelo";
+import { ModalForm } from "src/styles/styledComponents/modalsStyles";
+import useUpdateModelo from "src/hooks/modelo/useUpdateModelo";
 
 export default function ModalEdit() {
   const { userInfo, setUserInfo, handleEdit } = useUpdateModelo();
